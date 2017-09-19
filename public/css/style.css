@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  font-family: 'Sanchez';
+}
+header {
+  width: 100%;
+  height: 48px;
+  top: 0px;
+  background-color: #0d47a1;
+  color: white;
+  padding: 8px 0;
+  line-height: 48px;
+}
+nav {
+  float: right;
+}
+nav a,
+nav a:visited {
+  margin: 0 8px;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+nav a:hover {
+  color: #82b1ff;
+}
+.page-wrapper {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#header-icon {
+  margin: 0 8px;
+  vertical-align: top;
+  width: 48px;
+  height: 48px;
+  filter: invert(100%);
+}
+#header-title {
+  font-size: 32px;
+}
+.block_ul {
+  list-style: none;
+  color: white;
+  width: 100%;
+  padding: 0;
+  max-width: 1024px;
+  margin-right: auto;
+  margin-left: auto;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+}
+.block_ul li {
+  background-color: #0d47a1;
+  text-align: center;
+  border-radius: 16px;
+  width: 128px;
+  height: 32px;
+  line-height: 32px;
+  margin: 8px;
+  cursor: pointer;
+}
+.block_ul li:hover {
+  color: #82b1ff;
+}
+.block_ul li:nth-child(even) {
+  background-color: #0da08a;
+}
+.block_ul li:hover:nth-child(even) {
+  color: #80ffee;
+}
+.carrousel {
+  display: flex;
+  justify-content: center;
+}

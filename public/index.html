@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
+    <title>StaticWeb</title>
+    <script src="js/saxquery.js"></script>
+    <script>
+        _.onReady(function () {
+            _(".block_ul").children().onClick(function () {
+                if (_(this).html() === "Element")
+                    _(this).html('Ruby');
+                else
+                    _(this).html('Element');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="page-wrapper">
+            <img id="header-icon" src="https://png.icons8.com/safari-filled/ios7/50" alt="logo">
+            <span id="header-title">Vakanski</span>
+
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Reizen</a>
+                <a href="#">Contact</a>
+                <a href="#">Account</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="carrousel">
+        <img src='img/matterhorn.png'>
+        <img src='img/matterhorn.png'>
+        <img src='img/matterhorn.png'>
+    </div>
+
+    <main>
+        <ul class="block_ul">
+            <li>Element</li>
+            <li>Element</li>
+            <li>Element</li>
+            <li>Element</li>
+            <li>Element</li>
+        </ul>
+    </main>
+</body>
+
+</html>
