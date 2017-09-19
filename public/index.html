@@ -9,14 +9,14 @@
     <title>StaticWeb</title>
     <script src="js/saxquery.js"></script>
     <script>
-        _.onReady(function () {
+        /*_.onReady(function () {
             _(".block_ul").children().onClick(function () {
                 if (_(this).html() === "Element")
                     _(this).html('Ruby');
                 else
                     _(this).html('Element');
             });
-        });
+        });*/
     </script>
 </head>
 
@@ -34,13 +34,50 @@
             </nav>
         </div>
     </header>
+    <div id="header-shaddow"></div>
 
     <div class="carrousel">
-        <img src='img/matterhorn.png'>
-        <img src='img/matterhorn.png'>
-        <img src='img/matterhorn.png'>
+        <div class='foto-div'></div>
+        <div class='foto-div'>
+            <form>
+                <span class="select">        
+                    <select>
+                        <option>Oostenrijk</option>
+                        <option>Frankrijk</option>
+                        <option>Zwitserland</option>
+                    </select>
+                </span>
+                <span class="select">
+                    <select>
+                        <option>Januari</option>
+                        <option>Frebruari</option>
+                        <option>Maart</option>
+                        <option>April</option>
+                        <option>November</option>
+                        <option>Decebmer</option>
+                    </select>
+                </span>
+                <span class="select">
+                    <select>
+                        <option>2017</option>
+                        <option>2018</option>
+                    </select>
+                </span>
+                <button>Zoeken</button>
+            </form>
+        </div>
+        <div class='foto-div'></div>
     </div>
+    <section class='imageRow'>
+        <div class="actionImage">
+            <img src='img/skiing.png' />
+        </div>
+        <div class="actionImage">
+            <img src='img/snowboarding.png' />
+        </div>
+    </section>
 
+    <!--
     <main>
         <ul class="block_ul">
             <li>Element</li>
@@ -50,6 +87,7 @@
             <li>Element</li>
         </ul>
     </main>
+    -->
 </body>
 
 </html>

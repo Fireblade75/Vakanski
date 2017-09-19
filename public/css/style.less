@@ -1,56 +1,62 @@
-
 @fontPrimary: 'Sanchez';
 @colorPrimary: #0d47a1;
 @colorPrimaryLight: #82b1ff;
 @colorAlt: #0da08a;
 @colorAltLight: #80ffee;
-
 body {
-  margin: 0;
-  font-family: @fontPrimary;
+    margin: 0;
+    font-family: @fontPrimary;
 }
 
 header {
-  width: 100%;
-  height: 48px;
-  top:0px;
-  background-color: @colorPrimary;
-  color: white;
-  padding: 8px 0;
-  line-height: 48px;
+    width: 100%;
+    height: 48px;
+    top: 0px;
+    background-color: @colorPrimary;
+    color: white;
+    padding: 8px 0;
+    line-height: 48px;
+    
+}
+
+#header-shaddow {
+    position: absolute;
+    top: 64px;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(rgba(0, 0, 0, .14), rgba(0, 0, 0, 0));
 }
 
 nav {
-  float: right;
-
-  a, a:visited {
-    margin: 0 8px;
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: @colorPrimaryLight;
-  }
+    float: right;
+    a,
+    a:visited {
+        margin: 0 8px;
+        color: white;
+        font-size: 20px;
+        text-decoration: none;
+    }
+    a:hover {
+        color: @colorPrimaryLight;
+    }
 }
 
 .page-wrapper {
-  max-width: 1024px;
-  margin-left: auto;
-  margin-right: auto;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #header-icon {
-  margin: 0 8px;
-  vertical-align: top;
-  width: 48px;
-  height: 48px;
-  filter: invert(100%);
+    margin: 0 8px;
+    vertical-align: top;
+    width: 48px;
+    height: 48px;
+    filter: invert(100%);
 }
 
 #header-title {
-  font-size: 32px;
+    font-size: 32px;
 }
 
 // header {
@@ -66,53 +72,141 @@ nav {
 //   font-size: 24px;
 //   border-radius: 16px;
 //   color: white;
-
 //   img{
 //     vertical-align: top;
 //     margin: 24px;
 //     filter: invert(100%);
 //   }
 // }
-
-
-
 .block_ul {
-  list-style:none;
-  color: white;
-  width: 100%;
-  padding: 0;
-  max-width: 1024px;
-  margin-right: auto;
-  margin-left: auto;
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: space-between;
-
-  li {
-    background-color: @colorPrimary;
-    text-align: center;
-    border-radius: 16px;
-    width: 128px;
-    height: 32px;
-    line-height: 32px;
-    margin:8px;
-    cursor: pointer;
-  }
-
-  li:hover {
-    color: @colorPrimaryLight;
-  }
-
-  li:nth-child(even){
-    background-color: @colorAlt;
-  }
-
-  li:hover:nth-child(even){
-    color: @colorAltLight;
-  }
+    list-style: none;
+    color: white;
+    width: 100%;
+    padding: 0;
+    max-width: 1024px;
+    margin-right: auto;
+    margin-left: auto;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    li {
+        background-color: @colorPrimary;
+        text-align: center;
+        border-radius: 16px;
+        width: 128px;
+        height: 32px;
+        line-height: 32px;
+        margin: 8px;
+        cursor: pointer;
+    }
+    li:hover {
+        color: @colorPrimaryLight;
+    }
+    li:nth-child(even) {
+        background-color: @colorAlt;
+    }
+    li:hover:nth-child(even) {
+        color: @colorAltLight;
+    }
 }
 
 .carrousel {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
+}
+
+.foto-div {
+    min-width: 1000px;
+    height: 400px;
+    background-image: url('../img/matterhorn.png');
+    text-align: center;
+}
+
+.foto-div > form {
+    margin-top: 400px - 64px;
+}
+
+input,
+select {
+    height: 28px;
+    border-radius: 16px;
+    border: 2px solid @colorPrimary;
+    margin: 0;
+    width: 124px;
+    font-size: 16px;
+    padding-left: 5px;
+    outline-color: transparent;
+    outline-style: none;
+    color: @colorPrimary;
+}
+
+input:hover,
+select:hover {
+    background-color: @colorPrimaryLight;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    height: 32px;
+    width: 132px;
+    padding-left: 10px;
+    font-family: @fontPrimary;
+}
+
+span.select {
+    font-size: 0;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+}
+
+span.select:after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    right: 8px;
+    top: 50%;
+    margin-top: -3px;
+    height: 0;
+    width: 0;
+    border-top: 6px solid @colorPrimary;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    pointer-events: none;
+}
+
+button {
+    height: 32px;
+    width: 132px;
+    vertical-align: top;
+    border-radius: 16px;
+    background-color: white;
+    border: 2px solid @colorPrimary;
+    color: @colorPrimary;
+    font-size: 16px;
+    font-family: @fontPrimary;
+}
+
+button:hover {
+    background-color: @colorPrimaryLight;
+}
+
+.actionImage {
+    height: 300x;
+    width: 300px;
+    margin: 32px 16px;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.imageRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
