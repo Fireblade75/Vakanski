@@ -1,6 +1,7 @@
 @fontPrimary: 'Sanchez';
 @colorPrimary: #0d47a1;
 @colorPrimaryLight: #82b1ff;
+@colorPrimaryTransparant: rgba(13, 71, 161, 0.5);
 @colorAlt: #0da08a;
 @colorAltLight: #80ffee;
 body {
@@ -86,9 +87,7 @@ nav {
     max-width: 1024px;
     margin-right: auto;
     margin-left: auto;
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: space-between;
+
     li {
         background-color: @colorPrimary;
         text-align: center;
@@ -113,6 +112,7 @@ nav {
 .carrousel {
     display: flex;
     justify-content: center;
+    border-bottom: 2px solid @colorPrimary;
 }
 
 .foto-div {
@@ -195,18 +195,94 @@ button:hover {
 }
 
 .actionImage {
-    height: 300x;
-    width: 300px;
+    position: relative;
+    height: 200px;
+    width: 200px;
     margin: 32px 16px;
+    border: 2px solid @colorPrimary;
+    border-radius: 16px;
+    overflow: hidden;
 
     img {
+        position: absolute;
         width: 100%;
         height: 100%;
     }
+
+    span {
+        visibility: hidden;
+        display: inline-flex;
+        position: absolute;
+        background-color: @colorPrimaryTransparant;
+        border-radius: 16px;
+        font-size: 20px;
+        color: white;
+        width: 84%;
+        height: 84%;
+        margin: 8%;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.actionImage:hover > span {
+    visibility: visible;
 }
 
 .imageRow {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    border-bottom: 2px solid @colorPrimary;
+}
+
+footer {
+    height: 128px;
+    background-color: #f2f2f2;
+}
+
+.split-footer {
+    display: flex;
+    justify-content: space-between;
+
+    div {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        margin: 14px 0;
+        width: 50%;
+    }
+
+    div:not(:last-child) {
+        border-right: 2px solid @colorPrimary;
+    }
+
+    .block_ul {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+a.button, a:visited.button {
+    background-color: @colorPrimary;
+    text-align: center;
+    border-radius: 16px;
+    width: 128px;
+    height: 32px;
+    line-height: 32px;
+    margin: 8px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+a.button:hover {
+    color: @colorPrimaryLight;
+}
+a.twitter-button, a.twitter-button:visited {
+    background-color: #1da1f2;
+}
+
+a.twitter-button:hover {
+    color: @colorAltLight;
 }

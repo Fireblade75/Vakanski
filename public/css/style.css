@@ -54,9 +54,6 @@ nav a:hover {
   max-width: 1024px;
   margin-right: auto;
   margin-left: auto;
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: space-between;
 }
 .block_ul li {
   background-color: #0d47a1;
@@ -80,6 +77,7 @@ nav a:hover {
 .carrousel {
   display: flex;
   justify-content: center;
+  border-bottom: 2px solid #0d47a1;
 }
 .foto-div {
   min-width: 1000px;
@@ -152,16 +150,85 @@ button:hover {
   background-color: #82b1ff;
 }
 .actionImage {
-  height: 300x;
-  width: 300px;
+  position: relative;
+  height: 200px;
+  width: 200px;
   margin: 32px 16px;
+  border: 2px solid #0d47a1;
+  border-radius: 16px;
+  overflow: hidden;
 }
 .actionImage img {
+  position: absolute;
   width: 100%;
   height: 100%;
+}
+.actionImage span {
+  visibility: hidden;
+  display: inline-flex;
+  position: absolute;
+  background-color: rgba(13, 71, 161, 0.5);
+  border-radius: 16px;
+  font-size: 20px;
+  color: white;
+  width: 84%;
+  height: 84%;
+  margin: 8%;
+  justify-content: center;
+  align-items: center;
+}
+.actionImage:hover > span {
+  visibility: visible;
 }
 .imageRow {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  border-bottom: 2px solid #0d47a1;
+}
+footer {
+  height: 128px;
+  background-color: #f2f2f2;
+}
+.split-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.split-footer div {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  margin: 14px 0;
+  width: 50%;
+}
+.split-footer div:not(:last-child) {
+  border-right: 2px solid #0d47a1;
+}
+.split-footer .block_ul {
+  display: flex;
+  justify-content: center;
+}
+a.button,
+a:visited.button {
+  background-color: #0d47a1;
+  text-align: center;
+  border-radius: 16px;
+  width: 128px;
+  height: 32px;
+  line-height: 32px;
+  margin: 8px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+a.button:hover {
+  color: #82b1ff;
+}
+a.twitter-button,
+a.twitter-button:visited {
+  background-color: #1da1f2;
+}
+a.twitter-button:hover {
+  color: #80ffee;
 }
