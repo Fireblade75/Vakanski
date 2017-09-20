@@ -42,6 +42,11 @@ nav {
     }
 }
 
+h2 {
+    font-size: 32px;
+    color: @colorPrimary;
+}
+
 .page-wrapper {
     max-width: 1024px;
     margin-left: auto;
@@ -189,7 +194,7 @@ button:hover {
     position: relative;
     height: 200px;
     width: 200px;
-    margin: 32px 16px;
+    margin: 16px 16px;
     border: 2px solid @colorPrimary;
     border-radius: 16px;
     overflow: hidden;
@@ -220,15 +225,22 @@ button:hover {
     visibility: visible;
 }
 
-.imageRow {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.imageSection {
+    text-align: center;
     border-bottom: 2px solid @colorPrimary;
+    padding: 16px 0 48px;
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: left;
+    }
 }
 
+
 footer {
-    height: 128px;
+    height: 100px;
     background-color: #f2f2f2;
 }
 
@@ -240,9 +252,17 @@ footer {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        height: 100px;
+        height: 100px - 28px;
         margin: 14px 0;
         width: 50%;
+    }
+
+    div:first-child {
+        justify-content: flex-start;
+    }
+
+    div:last-child {
+        justify-content: flex-end;
     }
 
     div:not(:last-child) {
@@ -268,10 +288,20 @@ a.button, a:visited.button {
     cursor: pointer;
 }
 a.button:hover {
-    color: @colorPrimaryLight;
+    //color: @colorPrimaryLight;
+    color: rgba(255, 255, 255, 0.75);
 }
+
+a.facebook-button, a.facebook-button:visited {
+    background-color: #4267b2;
+}
+
 a.twitter-button, a.twitter-button:visited {
     background-color: #1da1f2;
+}
+
+a.youtube-button, a.youtube-button:visited {
+    background-color: #ff0000;
 }
 
 a.twitter-button:hover {
@@ -281,4 +311,11 @@ a.twitter-button:hover {
 a:not(.button) {
     color: @colorPrimary;
     text-decoration: none;
+}
+
+ul.check {
+    display: inline-block;
+    text-align: left;
+    list-style-image: url('../img/done_icon.svg');
+    font-size: 1.1em;
 }

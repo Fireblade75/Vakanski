@@ -31,6 +31,10 @@ nav a:visited {
 nav a:hover {
   color: #82b1ff;
 }
+h2 {
+  font-size: 32px;
+  color: #0d47a1;
+}
 .page-wrapper {
   max-width: 1024px;
   margin-left: auto;
@@ -161,7 +165,7 @@ button:hover {
   position: relative;
   height: 200px;
   width: 200px;
-  margin: 32px 16px;
+  margin: 16px 16px;
   border: 2px solid #0d47a1;
   border-radius: 16px;
   overflow: hidden;
@@ -188,14 +192,19 @@ button:hover {
 .actionImage:hover > span {
   visibility: visible;
 }
-.imageRow {
+.imageSection {
+  text-align: center;
+  border-bottom: 2px solid #0d47a1;
+  padding: 16px 0 48px;
+}
+.imageSection .row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border-bottom: 2px solid #0d47a1;
+  text-align: left;
 }
 footer {
-  height: 128px;
+  height: 100px;
   background-color: #f2f2f2;
 }
 .split-footer {
@@ -206,9 +215,15 @@ footer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 100px;
+  height: 72px;
   margin: 14px 0;
   width: 50%;
+}
+.split-footer div:first-child {
+  justify-content: flex-start;
+}
+.split-footer div:last-child {
+  justify-content: flex-end;
 }
 .split-footer div:not(:last-child) {
   border-right: 2px solid #0d47a1;
@@ -231,11 +246,19 @@ a:visited.button {
   cursor: pointer;
 }
 a.button:hover {
-  color: #82b1ff;
+  color: rgba(255, 255, 255, 0.75);
+}
+a.facebook-button,
+a.facebook-button:visited {
+  background-color: #4267b2;
 }
 a.twitter-button,
 a.twitter-button:visited {
   background-color: #1da1f2;
+}
+a.youtube-button,
+a.youtube-button:visited {
+  background-color: #ff0000;
 }
 a.twitter-button:hover {
   color: #80ffee;
@@ -243,4 +266,10 @@ a.twitter-button:hover {
 a:not(.button) {
   color: #0d47a1;
   text-decoration: none;
+}
+ul.check {
+  display: inline-block;
+  text-align: left;
+  list-style-image: url('../img/done_icon.svg');
+  font-size: 1.1em;
 }
