@@ -20,7 +20,7 @@ header {
     
 }
 
-#header-shaddow {
+#header-shaxdow {
     position: absolute;
     top: 64px;
     width: 100%;
@@ -60,25 +60,6 @@ nav {
     font-size: 32px;
 }
 
-// header {
-//   height: 92px;
-//   width: 100%;
-//   max-width: 1024px;
-//   margin-right: auto;
-//   margin-left: auto;
-//   background-color: @colorPrimary;
-//   line-height: 92px;
-//   text-align: center;
-//   font-family: 'Sanchez', sans-serif;
-//   font-size: 24px;
-//   border-radius: 16px;
-//   color: white;
-//   img{
-//     vertical-align: top;
-//     margin: 24px;
-//     filter: invert(100%);
-//   }
-// }
 .block_ul {
     list-style: none;
     color: white;
@@ -110,9 +91,21 @@ nav {
 }
 
 .carrousel {
+    position: relative;
+    border-bottom: 2px solid @colorPrimary; 
+    height: 64px;
+    padding-top: 400px - 64px;
+    text-align: center;
+}
+
+.carrousel > .background {
+    position: absolute;
+    z-index: -1;
+    top: 0px;
     display: flex;
     justify-content: center;
-    border-bottom: 2px solid @colorPrimary;
+    width: 100%;
+    overflow: hidden;
 }
 
 .foto-div {
@@ -122,9 +115,7 @@ nav {
     text-align: center;
 }
 
-.foto-div > form {
-    margin-top: 400px - 64px;
-}
+
 
 input,
 select {
@@ -285,4 +276,9 @@ a.twitter-button, a.twitter-button:visited {
 
 a.twitter-button:hover {
     color: @colorAltLight;
+}
+
+a:not(.button) {
+    color: @colorPrimary;
+    text-decoration: none;
 }
