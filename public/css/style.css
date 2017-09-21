@@ -312,3 +312,35 @@ ul.check {
 .carrousel .foto {
   transition: width 1s;
 }
+.contact-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: left;
+  margin: 50px;
+}
+.contact-main img {
+  position: left;
+  height: 180px;
+  width: 180px;
+  margin: 16px,16px;
+  border: 2px solid #0d47a1;
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 50px;
+}
+.contact-main .contact-intro {
+  align-items: center;
+  margin: 50px;
+}
+.contact-main .contact-intro .contact-intro-header {
+  font-size: 32px;
+  color: #0d47a1;
+  margin-top: 0px;
+}
+.contact-main .contact-intro .contact-intro-text {
+  width: 350px;
+}
+.contact-main .contact-intro button {
+  margin-top: 10px;
+}
