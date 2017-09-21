@@ -11,7 +11,7 @@ header {
   padding: 8px 0;
   line-height: 48px;
 }
-#header-shaxdow {
+#header-shadow {
   position: absolute;
   top: 64px;
   width: 100%;
@@ -50,56 +50,76 @@ h2 {
 #header-title {
   font-size: 32px;
 }
+/*
+
 .block_ul {
-  list-style: none;
-  color: white;
-  width: 100%;
-  padding: 0;
-  max-width: 1024px;
-  margin-right: auto;
-  margin-left: auto;
+    list-style: none;
+    color: white;
+    width: 100%;
+    padding: 0;
+    max-width: 1024px;
+    margin-right: auto;
+    margin-left: auto;
+
+    li {
+        background-color: @colorPrimary;
+        text-align: center;
+        border-radius: 16px;
+        width: 128px;
+        height: 32px;
+        line-height: 32px;
+        margin: 8px;
+        cursor: pointer;
+    }
+    li:hover {
+        color: @colorPrimaryLight;
+    }
+    li:nth-child(even) {
+        background-color: @colorAlt;
+    }
+    li:hover:nth-child(even) {
+        color: @colorAltLight;
+    }
 }
-.block_ul li {
-  background-color: #0d47a1;
-  text-align: center;
-  border-radius: 16px;
-  width: 128px;
-  height: 32px;
-  line-height: 32px;
-  margin: 8px;
-  cursor: pointer;
-}
-.block_ul li:hover {
-  color: #82b1ff;
-}
-.block_ul li:nth-child(even) {
-  background-color: #0da08a;
-}
-.block_ul li:hover:nth-child(even) {
-  color: #80ffee;
-}
+
 .carrousel {
-  position: relative;
-  border-bottom: 2px solid #0d47a1;
-  height: 64px;
-  padding-top: 336px;
-  text-align: center;
+    position: relative;
+    border-bottom: 2px solid @colorPrimary; 
+    height: 64px;
+    padding-top: 400px - 64px;
+    text-align: center;
 }
+
 .carrousel > .background {
-  position: absolute;
-  z-index: -1;
-  top: 0px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
 }
+
 .foto-div {
-  min-width: 1000px;
-  height: 400px;
-  background-image: url('../img/matterhorn.png');
-  text-align: center;
+    min-width: 1000px;
+    height: 400px;
+    background-image: url('../img/carrousel/oostenrijk_2.png');
+    text-align: center;
 }
+.foto-div:nth-child(even) {
+    border-left: 2px solid @colorPrimary;
+    border-right: 2px solid @colorPrimary;
+}
+
+.foto-div:last-child {
+    background-image: url('../img/carrousel/zwitserland_1.png')
+}
+
+.foto-div:first-child {
+    background-image: url('../img/carrousel/oostenrijk_1.png')
+}
+
+*/
 input,
 select {
   height: 28px;
@@ -272,4 +292,23 @@ ul.check {
   text-align: left;
   list-style-image: url('../img/done_icon.svg');
   font-size: 1.1em;
+}
+.carrousel {
+  position: relative;
+  border-bottom: 2px solid #0d47a1;
+  height: 64px;
+  padding-top: 336px;
+  text-align: center;
+}
+.carrousel > .background {
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+.carrousel .foto {
+  transition: width 1s;
 }

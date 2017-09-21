@@ -20,7 +20,7 @@ header {
     
 }
 
-#header-shaxdow {
+#header-shadow {
     position: absolute;
     top: 64px;
     width: 100%;
@@ -64,6 +64,8 @@ h2 {
 #header-title {
     font-size: 32px;
 }
+
+/*
 
 .block_ul {
     list-style: none;
@@ -116,10 +118,23 @@ h2 {
 .foto-div {
     min-width: 1000px;
     height: 400px;
-    background-image: url('../img/matterhorn.png');
+    background-image: url('../img/carrousel/oostenrijk_2.png');
     text-align: center;
 }
+.foto-div:nth-child(even) {
+    border-left: 2px solid @colorPrimary;
+    border-right: 2px solid @colorPrimary;
+}
 
+.foto-div:last-child {
+    background-image: url('../img/carrousel/zwitserland_1.png')
+}
+
+.foto-div:first-child {
+    background-image: url('../img/carrousel/oostenrijk_1.png')
+}
+
+*/
 
 
 input,
@@ -319,3 +334,29 @@ ul.check {
     list-style-image: url('../img/done_icon.svg');
     font-size: 1.1em;
 }
+
+.carrousel {
+    position: relative;
+    border-bottom: 2px solid @colorPrimary; 
+    height: 64px;
+    padding-top: 400px - 64px;
+    text-align: center;
+}
+
+.carrousel > .background {
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carrousel .foto {
+    transition: width 1s;
+}
+
+// .carrousel .foto:nth-child(n + 4) {
+//     display: none;
+// }
