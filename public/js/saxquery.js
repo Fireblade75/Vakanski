@@ -6,6 +6,18 @@ class _object {
             this.objects = [];
         } else if (tag instanceof HTMLElement) {
             this.objects = [tag];
+        } else if (tag instanceof Array) {
+            this.objects = [];
+            for (let i = 0; i < tag.length; i++) {
+                const element = tag[i];
+                if (element instanceof HTMLElement) {
+                    this.objects.push(element);
+                } else if (element instanceof _object) {
+                    for (let j = 0; j < element.objects.length; j++) {
+                        this.objects.push(element.objects[j]);
+                    }
+                }
+            }
         } else if (tag.startsWith('#')) {
             this.objects = [document.getElementById(tag.substr(1))];
         } else if (tag.startsWith('.')) {
@@ -171,26 +183,30 @@ class _object {
     }
 
     children() {
-        const result = new _object(null);
         const childNodes = [];
         for (let i = 0; i < this.objects.length; i++) {
             for (let j = 0; j < this.objects[i].children.length; j++) {
                 childNodes.push(this.objects[i].children[j]);
             }
         }
-        result.objects = childNodes;
-        return result;
+        return new _object(childNodes);
     }
 
     filter(filterStr) {
         const queryFilter = new QueryFilter(filterStr);
         const pureObjects = queryFilter.filter(this.objects);
         if (pureObjects.length > 0) {
-            const result = new _object(null);
-            result.objects = pureObjects;
-            return result;
+            return new _object(pureObjects);
         }
         return null;
+    }
+
+    first(n = null) {
+        return new _object(_.first(this.objects, n));
+    }
+
+    last(n = null) {
+        return new _object(_.last(this.objects, n));
     }
 }
 
