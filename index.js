@@ -1,8 +1,10 @@
 const express = require('express');
+const path = require('path');
+
 const app = express();
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, '/public')));
 
-app.listen(8080, function () {
-    console.log('Starting server on port 8080.')
-})
+app.listen(8080, function listen() {
+    console.log('Starting server on port 8080.');
+});

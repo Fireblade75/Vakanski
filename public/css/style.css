@@ -11,7 +11,7 @@ header {
   padding: 8px 0;
   line-height: 48px;
 }
-#header-shaddow {
+#header-shadow {
   position: absolute;
   top: 64px;
   width: 100%;
@@ -31,6 +31,10 @@ nav a:visited {
 nav a:hover {
   color: #82b1ff;
 }
+h2 {
+  font-size: 32px;
+  color: #0d47a1;
+}
 .page-wrapper {
   max-width: 1024px;
   margin-left: auto;
@@ -46,48 +50,76 @@ nav a:hover {
 #header-title {
   font-size: 32px;
 }
+/*
+
 .block_ul {
-  list-style: none;
-  color: white;
-  width: 100%;
-  padding: 0;
-  max-width: 1024px;
-  margin-right: auto;
-  margin-left: auto;
+    list-style: none;
+    color: white;
+    width: 100%;
+    padding: 0;
+    max-width: 1024px;
+    margin-right: auto;
+    margin-left: auto;
+
+    li {
+        background-color: @colorPrimary;
+        text-align: center;
+        border-radius: 16px;
+        width: 128px;
+        height: 32px;
+        line-height: 32px;
+        margin: 8px;
+        cursor: pointer;
+    }
+    li:hover {
+        color: @colorPrimaryLight;
+    }
+    li:nth-child(even) {
+        background-color: @colorAlt;
+    }
+    li:hover:nth-child(even) {
+        color: @colorAltLight;
+    }
 }
-.block_ul li {
-  background-color: #0d47a1;
-  text-align: center;
-  border-radius: 16px;
-  width: 128px;
-  height: 32px;
-  line-height: 32px;
-  margin: 8px;
-  cursor: pointer;
-}
-.block_ul li:hover {
-  color: #82b1ff;
-}
-.block_ul li:nth-child(even) {
-  background-color: #0da08a;
-}
-.block_ul li:hover:nth-child(even) {
-  color: #80ffee;
-}
+
 .carrousel {
-  display: flex;
-  justify-content: center;
-  border-bottom: 2px solid #0d47a1;
+    position: relative;
+    border-bottom: 2px solid @colorPrimary; 
+    height: 64px;
+    padding-top: 400px - 64px;
+    text-align: center;
 }
+
+.carrousel > .background {
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+}
+
 .foto-div {
-  min-width: 1000px;
-  height: 400px;
-  background-image: url('../img/matterhorn.png');
-  text-align: center;
+    min-width: 1000px;
+    height: 400px;
+    background-image: url('../img/carrousel/oostenrijk_2.png');
+    text-align: center;
 }
-.foto-div > form {
-  margin-top: 336px;
+.foto-div:nth-child(even) {
+    border-left: 2px solid @colorPrimary;
+    border-right: 2px solid @colorPrimary;
 }
+
+.foto-div:last-child {
+    background-image: url('../img/carrousel/zwitserland_1.png')
+}
+
+.foto-div:first-child {
+    background-image: url('../img/carrousel/oostenrijk_1.png')
+}
+
+*/
 input,
 select {
   height: 28px;
@@ -153,7 +185,7 @@ button:hover {
   position: relative;
   height: 200px;
   width: 200px;
-  margin: 32px 16px;
+  margin: 16px 16px;
   border: 2px solid #0d47a1;
   border-radius: 16px;
   overflow: hidden;
@@ -180,14 +212,19 @@ button:hover {
 .actionImage:hover > span {
   visibility: visible;
 }
-.imageRow {
+.imageSection {
+  text-align: center;
+  border-bottom: 2px solid #0d47a1;
+  padding: 16px 0 48px;
+}
+.imageSection .row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border-bottom: 2px solid #0d47a1;
+  text-align: left;
 }
 footer {
-  height: 128px;
+  height: 100px;
   background-color: #f2f2f2;
 }
 .split-footer {
@@ -198,9 +235,15 @@ footer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 100px;
+  height: 72px;
   margin: 14px 0;
   width: 50%;
+}
+.split-footer div:first-child {
+  justify-content: flex-start;
+}
+.split-footer div:last-child {
+  justify-content: flex-end;
 }
 .split-footer div:not(:last-child) {
   border-right: 2px solid #0d47a1;
@@ -223,12 +266,49 @@ a:visited.button {
   cursor: pointer;
 }
 a.button:hover {
-  color: #82b1ff;
+  color: rgba(255, 255, 255, 0.75);
+}
+a.facebook-button,
+a.facebook-button:visited {
+  background-color: #4267b2;
 }
 a.twitter-button,
 a.twitter-button:visited {
   background-color: #1da1f2;
 }
+a.youtube-button,
+a.youtube-button:visited {
+  background-color: #ff0000;
+}
 a.twitter-button:hover {
   color: #80ffee;
+}
+a:not(.button) {
+  color: #0d47a1;
+  text-decoration: none;
+}
+ul.check {
+  display: inline-block;
+  text-align: left;
+  list-style-image: url('../img/done_icon.svg');
+  font-size: 1.1em;
+}
+.carrousel {
+  position: relative;
+  border-bottom: 2px solid #0d47a1;
+  height: 64px;
+  padding-top: 336px;
+  text-align: center;
+}
+.carrousel > .background {
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+.carrousel .foto {
+  transition: width 1s;
 }

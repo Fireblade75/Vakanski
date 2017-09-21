@@ -1,0 +1,20 @@
+{
+    "extends": "airbnb-base",
+    "rules": {
+        "indent": ["error", 4],
+        "no-plusplus": ["error", {"allowForLoopAfterthoughts": true}],
+        "no-use-before-define": "off",
+        "no-restricted-syntax": ["off", {"BinaryExpression[operator='in']": true}],
+        "no-prototype-builtins": 0,
+        "no-param-reassign": 0,
+        "prefer-arrow-callback": 0,
+        "no-console":"off",
+        "strict": 0
+    },
+    "env": {
+        "browser": true
+    },
+    "globals": {
+        "_": false
+    }
+}

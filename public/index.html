@@ -8,16 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
     <title>StaticWeb</title>
     <script src="js/saxquery.js"></script>
-    <script>
-        /*_.onReady(function () {
-            _(".block_ul").children().onClick(function () {
-                if (_(this).html() === "Element")
-                    _(this).html('Ruby');
-                else
-                    _(this).html('Element');
-            });
-        });*/
-    </script>
+    <script src="js/carrousel.js"></script>
 </head>
 
 <body>
@@ -34,20 +25,35 @@
             </nav>
         </div>
     </header>
-    <div id="header-shaddow"></div>
+    <div id="header-shadow"></div>
 
     <div class="carrousel">
-        <div class='foto-div'></div>
-        <div class='foto-div'>
-            <form>
-                <span class="select">        
+        <div class="background">
+            <div class='foto'>
+                <img src='img/carrousel/zwitserland_1.png' />
+            </div>
+            <div class='foto'>
+                <img src='img/carrousel/oostenrijk_2.png' />
+            </div>
+            <div class='foto'>
+                <img src='img/carrousel/oostenrijk_1.png' />
+            </div>
+            <div class='foto'>
+                <img src='img/carrousel/italie_1.png' />
+            </div>
+            <div class='foto'>
+                <img src='img/carrousel/oostenrijk_3.png' />
+            </div>
+        </div>
+        <form>
+            <span class="select">        
                     <select>
                         <option>Oostenrijk</option>
                         <option>Frankrijk</option>
                         <option>Zwitserland</option>
                     </select>
                 </span>
-                <span class="select">
+            <span class="select">
                     <select>
                         <option>Januari</option>
                         <option>Frebruari</option>
@@ -57,45 +63,60 @@
                         <option>Decebmer</option>
                     </select>
                 </span>
-                <span class="select">
+            <span class="select">
                     <select>
                         <option>2017</option>
                         <option>2018</option>
                     </select>
                 </span>
-                <button>Zoeken</button>
-            </form>
-        </div>
-        <div class='foto-div'></div>
+            <button>Zoeken</button>
+        </form>
     </div>
 
-    <section class='imageRow'>
-        <div class="actionImage">
-            <img src='img/skiing.png' />
-            <span>Skiën</span>
-        </div>
-        <div class="actionImage">
-            <img src='img/snowboarding.png' />
-            <span>Snowboarden</span>
-        </div>
-        <div class="actionImage">
-            <img src='img/cross_country_skiing.png' />
-            <span>Langlaufen</span>
-        </div>
-        <div class="actionImage">
-            <img src='img/after_skiing.png' />
-            <span>Après-ski</span>
+    <section class='imageSection'>
+        <h2>Waarom Vakanski?</h2>
+        <ul class="check">
+            <li>Samen op wintersport met je vrienden</li>
+            <li> Voor een zo laag mogelijk bedrag</li>
+            <li> Naar de mooiste skigebieden van Europa</li>
+        </ul>
+    </section>
+
+    <section class='imageSection'>
+        <h2>Activiteiten</h2>
+        <div class="row">
+            <div class="actionImage">
+                <img src='img/skiing.png' />
+                <span>Skiën</span>
+            </div>
+            <div class="actionImage">
+                <img src='img/snowboarding.png' />
+                <span>Snowboarden</span>
+            </div>
+            <div class="actionImage">
+                <img src='img/cross_country_skiing.png' />
+                <span>Langlaufen</span>
+            </div>
+            <div class="actionImage">
+                <img src='img/after_skiing.png' />
+                <span>Après-ski</span>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="page-wrapper split-footer">
             <div>
-                Copyright &copy; Vakanski B.V.
+                <span>
+                    Copyright &copy; Vakanski B.V.<br>
+                    Tel. 0800 146 312<br>
+                    Met      aan: <a href='#'>credits</a>
+                </span>
             </div>
             <div>
-                <a href='http://faceebook.com' class='button'>Facebook</a>
+                <a href='http://facebook.com' class='button facebook-button'>Facebook</a>
                 <a href='http://twitter.com' class='button twitter-button'>Twitter</a>
+                <a href='http://youtube.com' class='button youtube-button'>Youtube</a>
             </div>
         </div>
     </footer>
