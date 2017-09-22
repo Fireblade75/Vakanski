@@ -47,6 +47,15 @@ h2 {
     color: @colorPrimary;
 }
 
+a, a:visited {
+    color: @colorPrimary;
+    text-decoration: none;
+}
+
+a:hover {
+    color: @colorPrimaryLight;
+}
+
 .page-wrapper {
     max-width: 1024px;
     margin-left: auto;
@@ -63,78 +72,6 @@ h2 {
 #header-title {
     font-size: 32px;
 }
-
-/*
-
-.block_ul {
-    list-style: none;
-    color: white;
-    width: 100%;
-    padding: 0;
-    max-width: 1024px;
-    margin-right: auto;
-    margin-left: auto;
-
-    li {
-        background-color: @colorPrimary;
-        text-align: center;
-        border-radius: 16px;
-        width: 128px;
-        height: 32px;
-        line-height: 32px;
-        margin: 8px;
-        cursor: pointer;
-    }
-    li:hover {
-        color: @colorPrimaryLight;
-    }
-    li:nth-child(even) {
-        background-color: @colorAlt;
-    }
-    li:hover:nth-child(even) {
-        color: @colorAltLight;
-    }
-}
-
-.carrousel {
-    position: relative;
-    border-bottom: 2px solid @colorPrimary; 
-    height: 64px;
-    padding-top: 400px - 64px;
-    text-align: center;
-}
-
-.carrousel > .background {
-    position: absolute;
-    z-index: -1;
-    top: 0px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    overflow: hidden;
-}
-
-.foto-div {
-    min-width: 1000px;
-    height: 400px;
-    background-image: url('../img/carrousel/oostenrijk_2.png');
-    text-align: center;
-}
-.foto-div:nth-child(even) {
-    border-left: 2px solid @colorPrimary;
-    border-right: 2px solid @colorPrimary;
-}
-
-.foto-div:last-child {
-    background-image: url('../img/carrousel/zwitserland_1.png')
-}
-
-.foto-div:first-child {
-    background-image: url('../img/carrousel/oostenrijk_1.png')
-}
-
-*/
-
 
 input,
 select {
@@ -319,11 +256,6 @@ a.youtube-button, a.youtube-button:visited {
 
 a.twitter-button:hover {
     color: @colorAltLight;
-}
-
-a:not(.button) {
-    color: @colorPrimary;
-    text-decoration: none;
 }
 
 ul.check {
