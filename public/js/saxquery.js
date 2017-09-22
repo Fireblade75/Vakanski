@@ -34,11 +34,15 @@ class _object {
         }
     }
 
-    get(index) {
+    getElement(index) {
         if (index >= 0) {
             return this.objects[index];
         }
         return this.objects[this.objects.length - index];
+    }
+
+    get(index) {
+        return new _object(this.getElement(index));
     }
 
     val(value = null) {
@@ -49,6 +53,12 @@ class _object {
             this.objects[i].value = value;
         }
         return value;
+    }
+
+    css(propertyName, value) {
+        for (let i = 0; i < this.objects.length; i++) {
+            this.objects[i].style[propertyName] = value;
+        }
     }
 
     onClick(func) {
@@ -208,6 +218,64 @@ class _object {
     last(n = null) {
         return new _object(_.last(this.objects, n));
     }
+
+    prependNode(node) {
+        const domNodes = _.toHTMLElements(node);
+
+        for (let i = 0; i < this.objects.length; i++) {
+            const firstNode = _.first(this.get(i).children().objects);
+            if (firstNode === undefined) {
+                for (let j = 0; j < domNodes.length; j++) {
+                    this.objects[i].appendChild(domNodes[j]);
+                }
+            } else {
+                for (let j = 0; j < domNodes.length; j++) {
+                    this.objects[i].insertBefore(domNodes[j], firstNode);
+                }
+            }
+        }
+    }
+
+    appendNode(node) {
+        const domNodes = _.toHTMLElements(node);
+        for (let i = 0; i < this.objects.length; i++) {
+            for (let j = 0; j < domNodes.length; j++) {
+                this.objects[i].appendChild(domNodes[j]);
+            }
+        }
+    }
+
+    removeChild(node) {
+        let domNodes;
+        const commands = ['fist', 'last'];
+        if (commands.indexOf(node) === -1 && !(node instanceof Number)) {
+            domNodes = _.toHTMLElements(node);
+        }
+        for (let i = 0; i < this.objects.length; i++) {
+            if (domNodes !== undefined) {
+                for (let j = 0; j < domNodes.length; j++) {
+                    this.objects[i].removeChild(domNodes[j]);
+                }
+            } else {
+                const children = this.get(i).children();
+                if (node instanceof Number) {
+                    this.objects[i].removeChild(children.objects[node]);
+                } else if (node === 'first') {
+                    this.objects[i].removeChild(_.first(children.objects));
+                } else if (node === 'last') {
+                    this.objects[i].removeChild(_.last(children.objects));
+                }
+            }
+        }
+    }
+
+    clone(deep = true) {
+        const newObjects = [];
+        for (let i = 0; i < this.objects.length; i++) {
+            newObjects.push(this.objects[i].cloneNode(deep));
+        }
+        return new _object(newObjects);
+    }
 }
 
 class _virtualObject {
@@ -343,6 +411,26 @@ _.toStartCase = function toStartCase(str, separator) {
         }
         return result + separator + word;
     }, undefined);
+};
+
+_.toHTMLElements = function toHTMLElements(...nodes) {
+    if (nodes.length === 1 && nodes[0] instanceof Array) {
+        nodes = _.first(nodes);
+    }
+
+    const result = [];
+    for (let i = 0; i < nodes.length; i++) {
+        if (nodes[i] instanceof HTMLElement) {
+            result.push(nodes[i]);
+        } else if (nodes[i] instanceof _virtualObject) {
+            result.push(nodes[i].toHtml());
+        } else if (nodes[i] instanceof _object) {
+            for (let j = 0; j < nodes[i].objects.length; j++) {
+                result.push(nodes[i].objects[j]);
+            }
+        }
+    }
+    return result;
 };
 
 class QueryFilter {

@@ -58,7 +58,6 @@ h2 {
     vertical-align: top;
     width: 48px;
     height: 48px;
-    filter: invert(100%);
 }
 
 #header-title {
@@ -160,7 +159,6 @@ select {
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
-    appearance: none;
     height: 32px;
     width: 132px;
     padding-left: 10px;
@@ -354,9 +352,14 @@ ul.check {
 }
 
 .carrousel .foto {
+    width: 1000px;
     transition: width 1s;
 }
 
-// .carrousel .foto:nth-child(n + 4) {
-//     display: none;
-// }
+.carrousel .foto:first-child {
+    width: 0px;
+}
+
+.carrousel .foto:nth-child(n + 7) {
+    width: 0px;
+}
