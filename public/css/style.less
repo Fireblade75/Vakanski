@@ -363,3 +363,36 @@ ul.check {
 .carrousel .foto:nth-child(n + 7) {
     width: 0px;
 }
+
+.contact-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: left;
+    margin: 50px;
+    img{
+        position: left;
+        height: 180px;
+        width: 180px;
+        margin: 16px,16px;
+        border: 2px solid @colorPrimary;
+        border-radius: 16px;
+        overflow: hidden;
+        margin: 50px;    
+    }
+    .contact-intro{
+        align-items: center;
+        margin: 50px;
+        .contact-intro-header{
+            font-size: 32px;
+            color: @colorPrimary;
+            margin-top: 0px;
+        }
+        .contact-intro-text {
+            width: 350px;            
+        }
+        button{
+            margin-top: 10px;
+        }
+    }
+}
