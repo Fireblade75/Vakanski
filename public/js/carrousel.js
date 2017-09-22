@@ -1,10 +1,9 @@
-
 class Carrousel {
-    init(id) {
-        if (id === undefined) {
-            id = '.carrousel';
+    constructor(tag) {
+        if (tag === undefined) {
+            tag = '.carrousel';
         }
-        this.carrousel = _('.carrousel').children().filter('.background');
+        this.carrousel = _(tag).children().filter('.background');
     }
 
     next() {
@@ -12,14 +11,22 @@ class Carrousel {
         const cloneImage = lastImage.clone();
         this.carrousel.prependNode(cloneImage);
 
-        setTimeout(() => { this.carrousel.removeChild('last'); }, 1000);
+        setTimeout(() => this.carrousel.removeChild('last'), 1000);
+    }
+
+    repeat(milliseconds = 5000) {
+        this.interval = setInterval(() => this.next(), milliseconds);
+    }
+
+    stop() {
+        clearInterval(this.interval);
     }
 }
 
-const carrousel = new Carrousel();
+let carrousel;
 
 _.onReady(function initCarrousel() {
-    carrousel.init();
-    setInterval(() => carrousel.next(), 5000);
+    carrousel = new Carrousel();
+    carrousel.repeat();
 });
 
