@@ -18,17 +18,18 @@ header {
   height: 4px;
   background: linear-gradient(rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0));
 }
-nav {
+nav#header-links {
   float: right;
+  margin-right: 16px;
 }
-nav a,
-nav a:visited {
+nav#header-links a,
+nav#header-links a:visited {
   margin: 0 8px;
   color: white;
   font-size: 20px;
   text-decoration: none;
 }
-nav a:hover {
+nav#header-links a:hover {
   color: #82b1ff;
 }
 h2 {
@@ -48,14 +49,19 @@ a:hover {
   margin-left: auto;
   margin-right: auto;
 }
+header > .page-wrapper {
+  height: 48px;
+}
 #header-icon {
-  margin: 0 8px;
-  vertical-align: top;
+  float: left;
+  margin: 0 16px;
   width: 48px;
   height: 48px;
 }
 #header-title {
+  float: left;
   font-size: 32px;
+  line-height: 48px;
 }
 input,
 select {
@@ -160,33 +166,46 @@ button:hover {
   text-align: left;
 }
 footer {
-  height: 100px;
+  height: 84px;
   background-color: #f2f2f2;
 }
 .split-footer {
   display: flex;
+  flex-wrap: wrap-reverse;
   justify-content: space-between;
 }
 .split-footer div {
+  height: 60px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 72px;
-  margin: 14px 0;
-  width: 50%;
+  padding: 0 16px;
+  margin: 12px 0;
+  min-width: 467px;
+  flex: 1 0 0;
 }
-.split-footer div:first-child {
-  justify-content: flex-start;
-}
-.split-footer div:last-child {
-  justify-content: flex-end;
-}
-.split-footer div:not(:last-child) {
-  border-right: 2px solid #0d47a1;
+.split-footer div a.button {
+  flex: 0 0 auto;
 }
 .split-footer .block_ul {
   display: flex;
   justify-content: center;
+}
+@media screen and (min-width: 1000px) {
+  .split-footer div:first-child {
+    justify-content: flex-start;
+  }
+  .split-footer div:last-child {
+    justify-content: flex-end;
+  }
+  .split-footer div:not(:last-child) {
+    border-right: 2px solid #0d47a1;
+  }
+}
+@media screen and (max-width: 999px) {
+  footer {
+    height: 168px;
+  }
 }
 a.button,
 a:visited.button {
@@ -204,19 +223,19 @@ a:visited.button {
 a.button:hover {
   color: rgba(255, 255, 255, 0.75);
 }
-a.facebook-button,
-a.facebook-button:visited {
+a.button.facebook,
+a.button.facebook:visited {
   background-color: #4267b2;
 }
-a.twitter-button,
-a.twitter-button:visited {
+a.button.twitter,
+a.button.twitter:visited {
   background-color: #1da1f2;
 }
-a.youtube-button,
-a.youtube-button:visited {
+a.button.youtube,
+a.button.youtube:visited {
   background-color: #ff0000;
 }
-a.twitter-button:hover {
+a.twitter:hover {
   color: #80ffee;
 }
 ul.check {

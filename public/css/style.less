@@ -17,7 +17,6 @@ header {
     color: white;
     padding: 8px 0;
     line-height: 48px;
-    
 }
 
 #header-shadow {
@@ -28,8 +27,9 @@ header {
     background: linear-gradient(rgba(0, 0, 0, .14), rgba(0, 0, 0, 0));
 }
 
-nav {
+nav#header-links {
     float: right;
+    margin-right: 16px;
     a,
     a:visited {
         margin: 0 8px;
@@ -62,15 +62,21 @@ a:hover {
     margin-right: auto;
 }
 
+header > .page-wrapper {
+    height: 48px;
+}
+
 #header-icon {
-    margin: 0 8px;
-    vertical-align: top;
+    float: left;
+    margin: 0 16px;
     width: 48px;
     height: 48px;
 }
 
 #header-title {
+    float: left;
     font-size: 32px;
+    line-height: 48px;
 }
 
 input,
@@ -190,39 +196,57 @@ button:hover {
 
 
 footer {
-    height: 100px;
+    height: 84px;
     background-color: #f2f2f2;
 }
 
 .split-footer {
     display: flex;
+    flex-wrap: wrap-reverse;
     justify-content: space-between;
 
     div {
+        height: 60px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        height: 100px - 28px;
-        margin: 14px 0;
-        width: 50%;
-    }
+        padding: 0 16px;
+        margin: 12px 0;
+        min-width: 500px - 32px - 1px; // - padding - border-width/2
+        flex: 1 0 0;
 
-    div:first-child {
-        justify-content: flex-start;
-    }
-
-    div:last-child {
-        justify-content: flex-end;
-    }
-
-    div:not(:last-child) {
-        border-right: 2px solid @colorPrimary;
+        a.button {
+            flex: 0 0 auto;
+        }
     }
 
     .block_ul {
         display: flex;
         justify-content: center;
     }
+}
+
+@media screen and (min-width: 1000px) {
+    .split-footer {
+            div:first-child {
+                justify-content: flex-start;
+            }
+    
+            div:last-child {
+                justify-content: flex-end;
+            }
+    
+            div:not(:last-child) {
+                border-right: 2px solid @colorPrimary;
+            }
+    }
+}
+
+@media screen and (max-width: 999px) {
+    footer {
+        height: 84px * 2px
+    }
+    
 }
 
 a.button, a:visited.button {
@@ -242,19 +266,19 @@ a.button:hover {
     color: rgba(255, 255, 255, 0.75);
 }
 
-a.facebook-button, a.facebook-button:visited {
+a.button.facebook, a.button.facebook:visited {
     background-color: #4267b2;
 }
 
-a.twitter-button, a.twitter-button:visited {
+a.button.twitter, a.button.twitter:visited {
     background-color: #1da1f2;
 }
 
-a.youtube-button, a.youtube-button:visited {
+a.button.youtube, a.button.youtube:visited {
     background-color: #ff0000;
 }
 
-a.twitter-button:hover {
+a.twitter:hover {
     color: @colorAltLight;
 }
 
