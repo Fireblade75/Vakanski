@@ -173,6 +173,14 @@ class _object {
         }
     }
 
+    toggleClass(name) {
+        if (this.hasClass(name)) {
+            this.removeClass(name);
+        } else {
+            this.addClass(name);
+        }
+    }
+
     hasClass(name, index = 0) {
         return this.getClasses(index).includes(name);
     }
