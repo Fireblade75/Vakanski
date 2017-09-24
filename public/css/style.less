@@ -30,6 +30,11 @@ header {
 nav#header-links {
     float: right;
     margin-right: 16px;
+
+    @media screen and (max-width: 699px) {
+        display: none;
+    }
+
     a,
     a:visited {
         margin: 0 8px;
@@ -77,6 +82,17 @@ header > .page-wrapper {
     float: left;
     font-size: 32px;
     line-height: 48px;
+}
+
+#hamburger-icon {
+    float: right;
+    cursor: pointer;
+    margin: 0 16px;
+    width: 48px;
+    height: 48px;
+    @media screen and (min-width: 700px) {
+        display: none;
+    }
 }
 
 input,
@@ -235,6 +251,10 @@ footer {
         }
     }
 
+    div:not(:last-child) {
+        border-right: 2px solid @colorPrimary;
+    }
+
     .block_ul {
         display: flex;
         justify-content: center;
@@ -251,9 +271,7 @@ footer {
                 justify-content: flex-end;
             }
     
-            div:not(:last-child) {
-                border-right: 2px solid @colorPrimary;
-            }
+            
     }
 }
 
@@ -270,7 +288,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 415px) {
+@media screen and (max-width: 417px) {
     .split-footer > div {
         height: initial;
         min-width: 176px;
@@ -278,6 +296,10 @@ footer {
 
     footer {
         height: 252px;
+    }
+
+    .split-footer > div:not(:last-child) {
+        border-right: 2px solid transparent;
     }
 }
 
@@ -340,7 +362,16 @@ ul.check {
 
 .carrousel .foto {
     width: 1000px;
-    transition: width 1s;
+    height: 400px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    flex: 0 0 auto;
+    background-position: 50%;
+    transition: width 0.8s;
+    @media screen and (max-width: 417px) {
+        transition: width 0.4s;
+    }
 }
 
 .carrousel .foto:first-child {

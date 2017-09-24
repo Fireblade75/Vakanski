@@ -12,7 +12,7 @@ class Carrousel {
         const cloneImage = lastImage.clone();
         this.carrousel.prependNode(cloneImage);
 
-        setTimeout(() => this.carrousel.removeChild('last'), 1000);
+        setTimeout(() => this.carrousel.removeChild('last'), 800);
     }
 
     repeat(milliseconds) {
