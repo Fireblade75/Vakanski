@@ -75,6 +75,10 @@ select {
   outline-color: transparent;
   outline-style: none;
   color: #0d47a1;
+  background-color: white;
+}
+option {
+  background-color: white;
 }
 input:hover,
 select:hover {
@@ -154,6 +158,16 @@ button:hover {
 .actionImage:hover > span {
   visibility: visible;
 }
+@media (hover: none) {
+  .actionImage > span {
+    visibility: visible;
+    bottom: 0px;
+    width: 100%;
+    height: 25%;
+    margin: 0;
+    border-radius: 0;
+  }
+}
 .imageSection {
   text-align: center;
   border-bottom: 2px solid #0d47a1;
@@ -180,8 +194,8 @@ footer {
   align-items: center;
   justify-content: center;
   padding: 0 16px;
-  margin: 12px 0;
-  min-width: 467px;
+  margin-top: 12px;
+  min-width: 176px;
   flex: 1 0 0;
 }
 .split-footer div a.button {
@@ -205,6 +219,21 @@ footer {
 @media screen and (max-width: 999px) {
   footer {
     height: 168px;
+  }
+  .split-footer > div {
+    height: 144px;
+  }
+  .split-footer > .footer-buttons {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 415px) {
+  .split-footer > div {
+    height: initial;
+    min-width: 176px;
+  }
+  footer {
+    height: 252px;
   }
 }
 a.button,
@@ -247,9 +276,8 @@ ul.check {
 .carrousel {
   position: relative;
   border-bottom: 2px solid #0d47a1;
-  height: 64px;
-  padding-top: 336px;
   text-align: center;
+  height: 400px;
 }
 .carrousel > .background {
   position: absolute;
@@ -269,6 +297,16 @@ ul.check {
 }
 .carrousel .foto:nth-child(n + 7) {
   width: 0px;
+}
+.carrousel > form {
+  position: absolute;
+  width: 100%;
+  bottom: 24px;
+  text-align: center;
+  line-height: 40px;
+}
+.carrousel > form span.select:after {
+  margin-top: -6px;
 }
 .contact-main {
   display: flex;

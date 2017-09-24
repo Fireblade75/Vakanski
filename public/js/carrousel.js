@@ -4,6 +4,7 @@ class Carrousel {
             tag = '.carrousel';
         }
         this.carrousel = _(tag).children().filter('.background');
+        this.milliseconds = 5000;
     }
 
     next() {
@@ -14,19 +15,39 @@ class Carrousel {
         setTimeout(() => this.carrousel.removeChild('last'), 1000);
     }
 
-    repeat(milliseconds = 5000) {
-        this.interval = setInterval(() => this.next(), milliseconds);
+    repeat(milliseconds) {
+        if (this.interval == null) {
+            if (milliseconds instanceof Number) {
+                this.milliseconds = milliseconds;
+            }
+
+            this.interval = setInterval(() => this.next(), this.milliseconds);
+            document.addEventListener('visibilitychange', this.pauze, false);
+        }
     }
 
     stop() {
         clearInterval(this.interval);
+        this.interval = null;
+    }
+
+    pauze() {
+        let carrousel = this;
+        if (!(carrousel instanceof Carrousel)) {
+            carrousel = globalCarrousel;
+        }
+
+        if (document.hidden) {
+            carrousel.stop();
+        } else {
+            carrousel.repeat();
+        }
     }
 }
 
-let carrousel;
+let globalCarrousel;
 
 _.onReady(function initCarrousel() {
-    carrousel = new Carrousel();
-    carrousel.repeat();
+    globalCarrousel = new Carrousel();
+    globalCarrousel.repeat();
 });
-

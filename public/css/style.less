@@ -91,6 +91,11 @@ select {
     outline-color: transparent;
     outline-style: none;
     color: @colorPrimary;
+    background-color: white;
+}
+
+option {
+    background-color: white;
 }
 
 input:hover,
@@ -181,6 +186,17 @@ button:hover {
     visibility: visible;
 }
 
+@media (hover: none) {
+    .actionImage > span {
+        visibility: visible;
+        bottom: 0px;
+        width: 100%;
+        height: 25%;
+        margin: 0;
+        border-radius: 0;
+    }
+}
+
 .imageSection {
     text-align: center;
     border-bottom: 2px solid @colorPrimary;
@@ -193,7 +209,6 @@ button:hover {
         text-align: left;
     }
 }
-
 
 footer {
     height: 84px;
@@ -211,8 +226,8 @@ footer {
         align-items: center;
         justify-content: center;
         padding: 0 16px;
-        margin: 12px 0;
-        min-width: 500px - 32px - 1px; // - padding - border-width/2
+        margin-top: 12px;
+        min-width: 176px;
         flex: 1 0 0;
 
         a.button {
@@ -246,7 +261,24 @@ footer {
     footer {
         height: 84px * 2px
     }
+    .split-footer > div {
+        height: 144px;
+    }
     
+    .split-footer > .footer-buttons {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 415px) {
+    .split-footer > div {
+        height: initial;
+        min-width: 176px;
+    }
+
+    footer {
+        height: 252px;
+    }
 }
 
 a.button, a:visited.button {
@@ -292,9 +324,8 @@ ul.check {
 .carrousel {
     position: relative;
     border-bottom: 2px solid @colorPrimary; 
-    height: 64px;
-    padding-top: 400px - 64px;
     text-align: center;
+    height: 400px;
 }
 
 .carrousel > .background {
@@ -318,6 +349,19 @@ ul.check {
 
 .carrousel .foto:nth-child(n + 7) {
     width: 0px;
+}
+
+.carrousel > form {
+    position: absolute;
+    width: 100%;
+    bottom: 32px - 8px;
+    text-align: center;
+    line-height: 40px;
+}
+
+// Becouse of the unnatural line-height the arrow margin must be corrected
+.carrousel > form span.select:after {
+    margin-top: -6px;
 }
 
 .contact-main {
