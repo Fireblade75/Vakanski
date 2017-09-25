@@ -393,13 +393,23 @@ section {
   border-bottom: 2px solid #0d47a1;
   padding: 16px 16px 48px;
 }
-.image-row-section > .row {
+.image-row-section .row,
+.card-section .row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.card-section {
+  padding: 48px 16px;
 }
 .row {
   text-align: left;
+}
+a.row {
+  cursor: pointer;
 }
 .split-text-section {
   padding: 48px 16px;
@@ -440,6 +450,7 @@ section {
   border-radius: 16px;
   max-width: 400px;
   font-size: 0;
+  margin: 16px;
   height: 200px;
 }
 .object-card .image,
