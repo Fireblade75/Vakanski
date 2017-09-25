@@ -322,7 +322,14 @@ let _ = function select(tag) {
 
 _.create = function createElement(tag, attributes, ...childNodes) {
     if (childNodes.length === 1 && Array.isArray(childNodes[0])) {
-        return new _virtualObject({ tag, attributes, childNodes: childNodes[0] });
+        childNodes = _.first(childNodes);
+    }
+    if (typeof attributes === 'string' || typeof attributes === 'number' || attributes instanceof _virtualObject) {
+        childNodes.unshift(attributes);
+        attributes = {};
+    }
+    if (attributes === undefined) {
+        attributes = {};
     }
     return new _virtualObject({ tag, attributes, childNodes });
 };
