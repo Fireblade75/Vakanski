@@ -185,17 +185,6 @@ button:hover {
     border-radius: 0;
   }
 }
-.imageSection {
-  text-align: center;
-  border-bottom: 2px solid #0d47a1;
-  padding: 16px 0 48px;
-}
-.imageSection .row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: left;
-}
 footer {
   height: 84px;
   background-color: #f2f2f2;
@@ -326,7 +315,7 @@ ul.check {
 .carrousel .foto:first-child {
   width: 0px;
 }
-.carrousel .foto:nth-child(n + 7) {
+.carrousel .foto:nth-child(n+7) {
   width: 0px;
 }
 .carrousel > form {
@@ -350,7 +339,7 @@ ul.check {
   position: left;
   height: 180px;
   width: 180px;
-  margin: 16px,16px;
+  margin: 16px, 16px;
   border: 2px solid #0d47a1;
   border-radius: 16px;
   overflow: hidden;
@@ -398,4 +387,78 @@ ul.check {
 }
 #dropdown-links.active > a:not(:last-child) {
   border-bottom: 1px solid #0d47a1;
+}
+section {
+  text-align: center;
+  border-bottom: 2px solid #0d47a1;
+  padding: 16px 16px 48px;
+}
+.image-row-section > .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.row {
+  text-align: left;
+}
+.split-text-section {
+  padding: 48px 16px;
+}
+.split-text-section > .row {
+  overflow: hidden;
+}
+.split-text-section > .row div.image-wrapper {
+  float: left;
+  width: 50%;
+}
+@media screen and (max-width: 599px) {
+  .split-text-section > .row div.image-wrapper {
+    display: none;
+  }
+}
+.split-text-section > .row div.image-wrapper .actionImage {
+  margin-left: auto;
+  margin-right: 92px;
+}
+@media screen and (min-width: 600px) {
+  .split-text-section > .row .description {
+    float: right;
+    width: 50%;
+  }
+}
+.split-text-section > .row .description h2 {
+  margin-bottom: 0;
+}
+@media screen and (max-width: 599px) {
+  .split-text-section > .row .description h2 {
+    text-align: center;
+  }
+}
+.object-card {
+  border: 2px solid #0d47a1;
+  overflow: hidden;
+  border-radius: 16px;
+  max-width: 400px;
+  font-size: 0;
+  height: 200px;
+}
+.object-card .image,
+.object-card .description {
+  max-width: 50%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.object-card .image {
+  display: inline-flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.object-card .image img {
+  height: 100%;
+}
+.object-card .description {
+  font-size: initial;
+  box-sizing: border-box;
+  padding: 10px;
 }

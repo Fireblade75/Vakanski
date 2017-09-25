@@ -30,11 +30,9 @@ header {
 nav#header-links {
     float: right;
     margin-right: 16px;
-
     @media screen and (max-width: 699px) {
         display: none;
     }
-
     a,
     a:visited {
         margin: 0 8px;
@@ -52,7 +50,8 @@ h2 {
     color: @colorPrimary;
 }
 
-a, a:visited {
+a,
+a:visited {
     color: @colorPrimary;
     text-decoration: none;
 }
@@ -67,7 +66,7 @@ a:hover {
     margin-right: auto;
 }
 
-header > .page-wrapper {
+header>.page-wrapper {
     height: 48px;
 }
 
@@ -175,13 +174,11 @@ button:hover {
     border: 2px solid @colorPrimary;
     border-radius: 16px;
     overflow: hidden;
-
     img {
         position: absolute;
         width: 100%;
         height: 100%;
     }
-
     span {
         visibility: hidden;
         display: inline-flex;
@@ -198,31 +195,18 @@ button:hover {
     }
 }
 
-.actionImage:hover > span {
+.actionImage:hover>span {
     visibility: visible;
 }
 
 @media (hover: none) {
-    .actionImage > span {
+    .actionImage>span {
         visibility: visible;
         bottom: 0px;
         width: 100%;
         height: 25%;
         margin: 0;
         border-radius: 0;
-    }
-}
-
-.imageSection {
-    text-align: center;
-    border-bottom: 2px solid @colorPrimary;
-    padding: 16px 0 48px;
-
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: left;
     }
 }
 
@@ -235,7 +219,6 @@ footer {
     display: flex;
     flex-wrap: wrap-reverse;
     justify-content: space-between;
-
     div {
         height: 60px;
         display: inline-flex;
@@ -245,16 +228,13 @@ footer {
         margin-top: 12px;
         min-width: 176px;
         flex: 1 0 0;
-
         a.button {
             flex: 0 0 auto;
         }
     }
-
     div:not(:last-child) {
         border-right: 2px solid @colorPrimary;
     }
-
     .block_ul {
         display: flex;
         justify-content: center;
@@ -263,15 +243,12 @@ footer {
 
 @media screen and (min-width: 1000px) {
     .split-footer {
-            div:first-child {
-                justify-content: flex-start;
-            }
-    
-            div:last-child {
-                justify-content: flex-end;
-            }
-    
-            
+        div:first-child {
+            justify-content: flex-start;
+        }
+        div:last-child {
+            justify-content: flex-end;
+        }
     }
 }
 
@@ -279,31 +256,29 @@ footer {
     footer {
         height: 84px * 2px
     }
-    .split-footer > div {
+    .split-footer>div {
         height: 144px;
     }
-    
-    .split-footer > .footer-buttons {
+    .split-footer>.footer-buttons {
         flex-direction: column;
     }
 }
 
 @media screen and (max-width: 417px) {
-    .split-footer > div {
+    .split-footer>div {
         height: initial;
         min-width: 176px;
     }
-
     footer {
         height: 252px;
     }
-
-    .split-footer > div:not(:last-child) {
+    .split-footer>div:not(:last-child) {
         border-right: 2px solid transparent;
     }
 }
 
-a.button, a:visited.button {
+a.button,
+a:visited.button {
     background-color: @colorPrimary;
     text-align: center;
     border-radius: 16px;
@@ -315,20 +290,24 @@ a.button, a:visited.button {
     text-decoration: none;
     cursor: pointer;
 }
+
 a.button:hover {
     //color: @colorPrimaryLight;
     color: rgba(255, 255, 255, 0.75);
 }
 
-a.button.facebook, a.button.facebook:visited {
+a.button.facebook,
+a.button.facebook:visited {
     background-color: #4267b2;
 }
 
-a.button.twitter, a.button.twitter:visited {
+a.button.twitter,
+a.button.twitter:visited {
     background-color: #1da1f2;
 }
 
-a.button.youtube, a.button.youtube:visited {
+a.button.youtube,
+a.button.youtube:visited {
     background-color: #ff0000;
 }
 
@@ -345,12 +324,12 @@ ul.check {
 
 .carrousel {
     position: relative;
-    border-bottom: 2px solid @colorPrimary; 
+    border-bottom: 2px solid @colorPrimary;
     text-align: center;
     height: 400px;
 }
 
-.carrousel > .background {
+.carrousel>.background {
     position: absolute;
     z-index: -1;
     top: 0px;
@@ -378,11 +357,11 @@ ul.check {
     width: 0px;
 }
 
-.carrousel .foto:nth-child(n + 7) {
+.carrousel .foto:nth-child(n+7) {
     width: 0px;
 }
 
-.carrousel > form {
+.carrousel>form {
     position: absolute;
     width: 100%;
     bottom: 32px - 8px;
@@ -391,7 +370,7 @@ ul.check {
 }
 
 // Becouse of the unnatural line-height the arrow margin must be corrected
-.carrousel > form span.select:after {
+.carrousel>form span.select:after {
     margin-top: -6px;
 }
 
@@ -401,28 +380,28 @@ ul.check {
     justify-content: center;
     text-align: left;
     margin: 50px;
-    img{
+    img {
         position: left;
         height: 180px;
         width: 180px;
-        margin: 16px,16px;
+        margin: 16px, 16px;
         border: 2px solid @colorPrimary;
         border-radius: 16px;
         overflow: hidden;
-        margin: 50px;    
+        margin: 50px;
     }
-    .contact-intro{
+    .contact-intro {
         align-items: center;
         margin: 50px;
-        .contact-intro-header{
+        .contact-intro-header {
             font-size: 32px;
             color: @colorPrimary;
             margin-top: 0px;
         }
         .contact-intro-text {
-            width: 350px;            
+            width: 350px;
         }
-        button{
+        button {
             margin-top: 10px;
         }
     }
@@ -435,7 +414,6 @@ ul.check {
     border-bottom: 1px solid @colorPrimary;
     background-color: @colorPrimaryLight;
     z-index: 1;
-
     a {
         display: block;
         text-align: center;
@@ -452,10 +430,93 @@ ul.check {
     }
 }
 
-#dropdown-links.active > a {
+#dropdown-links.active>a {
     height: 48px;
 }
 
-#dropdown-links.active > a:not(:last-child) {
+#dropdown-links.active>a:not(:last-child) {
     border-bottom: 1px solid @colorPrimary;
+}
+
+section {
+    text-align: center;
+    border-bottom: 2px solid @colorPrimary;
+    padding: 16px 16px 48px;
+}
+
+.image-row-section>.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.row {
+    text-align: left;
+}
+
+.split-text-section{
+    padding: 48px 16px;
+}
+
+.split-text-section>.row {
+    overflow: hidden;
+
+    div.image-wrapper {
+        float: left;
+        width: 50%;
+
+        @media screen and (max-width: 599px) {
+            display: none;
+        }
+        .actionImage {
+            margin-left: auto;
+            margin-right: 92px;
+        }
+    }
+
+    .description {
+        @media screen and (min-width: 600px) {
+            float: right;
+            width: 50%;
+        }
+
+        h2 {
+            @media screen and (max-width: 599px) {
+                text-align: center;
+            }
+            margin-bottom: 0;
+        }
+    }
+}
+
+.object-card {
+    border: 2px solid @colorPrimary;
+    overflow: hidden;
+    border-radius: 16px;
+    max-width: 400px;
+    font-size: 0;
+    height: 200px;
+
+    .image, .description {
+        max-width: 50%;
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .image {
+        display: inline-flex;
+        justify-content: center;
+        overflow: hidden;
+        
+        img {
+            height: 100%;
+        }   
+    }
+
+    .description {
+        font-size: initial;
+        box-sizing: border-box;
+        padding: 10px;
+    }
 }
