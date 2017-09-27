@@ -12,5 +12,10 @@
     <asset type='image' src='img/carrousel/alpen_2.png' url='https://static.pexels.com/photos/68398/pexels-photo-68398.jpeg' />
     <asset type='image' src='img/Callcenter03.jpg' url= 'https://commons.wikimedia.org/wiki/File:Callcenter03.jpg' />
     <asset type='image' src='img/done_icon.svg' url= 'https://material.io/icons/#ic_menu' />
-    <asset type='image' src='img/mayrhofen.jpg' url= 'https://commons.wikimedia.org/wiki/File:Mayrhofen_Wirtshaus_zum_Griena.jpg' />
+    <asset type='image' src='img/hotels/wirtshaus-zum-griena.png' url= 'https://commons.wikimedia.org/wiki/File:Mayrhofen_Wirtshaus_zum_Griena.jpg' />
+    <asset type='image' src='img/hotels/rasmushof-kitzbuehel.png' url= 'https://commons.wikimedia.org/wiki/File:Hotel-rasmushof-kitzbuehel-winter.jpg' />
+    <asset type='image' src='img/hotels/franko-suisse-beim-zoll.png' url= 'https://commons.wikimedia.org/wiki/File:La-Cure-Douane.jpg' />
+    <asset type='image' src='img/hotels/gasthof-schoepf-gries.png' url= 'https://commons.wikimedia.org/wiki/File:La-Cure-Douane.jpg' />
+    <asset type='image' src='img/hotels/warnsdorfer-hutte.png' url= 'https://commons.wikimedia.org/wiki/File:Warnsdorfer_H%C3%BCtte.jpg' />
+    <asset type='image' src='img/hotels/wieserhof.png' url= 'https://commons.wikimedia.org/wiki/File:Innsbruck-Igls-Wieserhof.jpg' />
 </assets>

@@ -19,6 +19,21 @@ class DataManager {
         });
     }
 
+    static getLocation(id, successHandler, errorHandler) {
+        _.get('api/locations.json', function search(response) {
+            let succes = false;
+            for (let i = 0; i < response.length; i++) {
+                if (String(response[i].id) === String(id)) {
+                    successHandler(response[i]);
+                    succes = true;
+                }
+            }
+            if (!succes && errorHandler !== undefined) {
+                errorHandler(response);
+            }
+        });
+    }
+
     static getParameter(name) {
         // First we cut the ?
         const getpath = window.location.search.substr(1);
@@ -32,4 +47,3 @@ class DataManager {
         return undefined;
     }
 }
-

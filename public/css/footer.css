@@ -1,0 +1,75 @@
+footer {
+  height: 84px;
+  background-color: #f2f2f2;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 2px solid #0d47a1;
+}
+section:last-of-type {
+  padding-bottom: 116px;
+}
+.split-footer {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+}
+.split-footer div {
+  height: 60px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  margin-top: 12px;
+  min-width: 176px;
+  flex: 1 0 0;
+}
+.split-footer div a.button {
+  flex: 0 0 auto;
+}
+.split-footer div:not(:last-child) {
+  border-right: 2px solid #0d47a1;
+}
+.split-footer .block_ul {
+  display: flex;
+  justify-content: center;
+}
+@media screen and (min-width: 1000px) {
+  .split-footer div:first-child {
+    justify-content: flex-start;
+  }
+  .split-footer div:last-child {
+    justify-content: flex-end;
+  }
+}
+@media screen and (max-width: 999px) {
+  footer {
+    height: 168px;
+  }
+  section:last-of-type {
+    padding-bottom: 200px;
+  }
+  .split-footer > div {
+    height: 144px;
+  }
+  .split-footer > .footer-buttons {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 417px) {
+  .split-footer > div {
+    height: initial;
+    min-width: 176px;
+  }
+  footer {
+    height: 252px;
+  }
+  section:last-of-type {
+    padding-bottom: 284px;
+  }
+  .split-footer > div:not(:last-child) {
+    border-right: 2px solid transparent;
+  }
+}

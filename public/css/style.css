@@ -1,6 +1,87 @@
+footer {
+  height: 84px;
+  background-color: #f2f2f2;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 2px solid #0d47a1;
+}
+section:last-of-type {
+  padding-bottom: 116px;
+}
+.split-footer {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+}
+.split-footer div {
+  height: 60px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  margin-top: 12px;
+  min-width: 176px;
+  flex: 1 0 0;
+}
+.split-footer div a.button {
+  flex: 0 0 auto;
+}
+.split-footer div:not(:last-child) {
+  border-right: 2px solid #0d47a1;
+}
+.split-footer .block_ul {
+  display: flex;
+  justify-content: center;
+}
+@media screen and (min-width: 1000px) {
+  .split-footer div:first-child {
+    justify-content: flex-start;
+  }
+  .split-footer div:last-child {
+    justify-content: flex-end;
+  }
+}
+@media screen and (max-width: 999px) {
+  footer {
+    height: 168px;
+  }
+  section:last-of-type {
+    padding-bottom: 200px;
+  }
+  .split-footer > div {
+    height: 144px;
+  }
+  .split-footer > .footer-buttons {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 417px) {
+  .split-footer > div {
+    height: initial;
+    min-width: 176px;
+  }
+  footer {
+    height: 252px;
+  }
+  section:last-of-type {
+    padding-bottom: 284px;
+  }
+  .split-footer > div:not(:last-child) {
+    border-right: 2px solid transparent;
+  }
+}
+html {
+  height: 100%;
+}
 body {
-  margin: 0;
+  position: relative;
   font-family: 'Sanchez';
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
 }
 header {
   width: 100%;
@@ -39,6 +120,9 @@ nav#header-links a:hover {
 }
 h2 {
   font-size: 32px;
+  color: #0d47a1;
+}
+h3 {
   color: #0d47a1;
 }
 a,
@@ -185,68 +269,9 @@ button:hover {
     border-radius: 0;
   }
 }
-footer {
-  height: 84px;
-  background-color: #f2f2f2;
-}
-.split-footer {
-  display: flex;
-  flex-wrap: wrap-reverse;
-  justify-content: space-between;
-}
-.split-footer div {
-  height: 60px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 16px;
-  margin-top: 12px;
-  min-width: 176px;
-  flex: 1 0 0;
-}
-.split-footer div a.button {
-  flex: 0 0 auto;
-}
-.split-footer div:not(:last-child) {
-  border-right: 2px solid #0d47a1;
-}
-.split-footer .block_ul {
-  display: flex;
-  justify-content: center;
-}
-@media screen and (min-width: 1000px) {
-  .split-footer div:first-child {
-    justify-content: flex-start;
-  }
-  .split-footer div:last-child {
-    justify-content: flex-end;
-  }
-}
-@media screen and (max-width: 999px) {
-  footer {
-    height: 168px;
-  }
-  .split-footer > div {
-    height: 144px;
-  }
-  .split-footer > .footer-buttons {
-    flex-direction: column;
-  }
-}
-@media screen and (max-width: 417px) {
-  .split-footer > div {
-    height: initial;
-    min-width: 176px;
-  }
-  footer {
-    height: 252px;
-  }
-  .split-footer > div:not(:last-child) {
-    border-right: 2px solid transparent;
-  }
-}
 a.button,
 a:visited.button {
+  display: inline-block;
   background-color: #0d47a1;
   text-align: center;
   border-radius: 16px;
@@ -259,7 +284,7 @@ a:visited.button {
   cursor: pointer;
 }
 a.button:hover {
-  color: rgba(255, 255, 255, 0.75);
+  color: #82b1ff;
 }
 a.button.facebook,
 a.button.facebook:visited {
@@ -273,14 +298,29 @@ a.button.youtube,
 a.button.youtube:visited {
   background-color: #ff0000;
 }
-a.twitter:hover {
-  color: #80ffee;
+a.button.facebook:hover,
+a.button.twitter:hover,
+a.button.youtube:hover {
+  color: rgba(255, 255, 255, 0.75);
 }
-ul.check {
+ul {
   display: inline-block;
   text-align: left;
-  list-style-image: url('../img/done_icon.svg');
+}
+ul.check {
+  list-style-image: url('../img/check-icon.svg');
+}
+ul.fat-check {
+  list-style-image: url('../img/check-fat-icon.svg');
   font-size: 1.1em;
+}
+ul.fat-check li {
+  margin-bottom: 0.4em;
+  padding-left: 8px;
+}
+ul.no-decoration {
+  list-style: none;
+  padding-left: 0;
 }
 .carrousel {
   position: relative;
@@ -390,8 +430,10 @@ ul.check {
 }
 section {
   text-align: center;
-  border-bottom: 2px solid #0d47a1;
   padding: 16px 16px 48px;
+}
+section:not(:last-of-type) {
+  border-bottom: 2px solid #0d47a1;
 }
 .image-row-section .row,
 .card-section .row {
@@ -444,7 +486,9 @@ a.row {
     text-align: center;
   }
 }
-.object-card {
+.object-card,
+.object-card:hover,
+.object-card:visited {
   border: 2px solid #0d47a1;
   overflow: hidden;
   border-radius: 16px;
@@ -452,24 +496,155 @@ a.row {
   font-size: 0;
   margin: 16px;
   height: 200px;
+  color: black;
 }
 .object-card .image,
-.object-card .description {
+.object-card:hover .image,
+.object-card:visited .image,
+.object-card .description,
+.object-card:hover .description,
+.object-card:visited .description {
   max-width: 50%;
   height: 100%;
   display: inline-block;
   vertical-align: middle;
 }
-.object-card .image {
+.object-card .image,
+.object-card:hover .image,
+.object-card:visited .image {
   display: inline-flex;
   justify-content: center;
   overflow: hidden;
 }
-.object-card .image img {
+.object-card .image img,
+.object-card:hover .image img,
+.object-card:visited .image img {
   height: 100%;
 }
-.object-card .description {
+.object-card .description,
+.object-card:hover .description,
+.object-card:visited .description {
   font-size: initial;
   box-sizing: border-box;
   padding: 10px;
+}
+.object-card .description h3,
+.object-card:hover .description h3,
+.object-card:visited .description h3,
+.object-card .description ul,
+.object-card:hover .description ul,
+.object-card:visited .description ul {
+  margin: 8px 0;
+}
+.object-card .description ul,
+.object-card:hover .description ul,
+.object-card:visited .description ul {
+  height: 140px;
+  overflow: hidden;
+  display: block;
+}
+.object-card .description ul.check,
+.object-card:hover .description ul.check,
+.object-card:visited .description ul.check,
+.object-card .description ul.fat-check,
+.object-card:hover .description ul.fat-check,
+.object-card:visited .description ul.fat-check {
+  padding-left: 30px;
+}
+.object-card .description ul,
+.object-card:hover .description ul,
+.object-card:visited .description ul {
+  margin: 0;
+}
+.item-detail-wrapper {
+  display: flex;
+  border: 2px solid #0d47a1;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 900px;
+}
+@media screen and (min-width: 600px) {
+  .item-detail-wrapper {
+    height: 400px;
+  }
+}
+@media screen and (max-width: 599px) {
+  .item-detail-wrapper {
+    flex-wrap: wrap;
+  }
+}
+.item-detail-wrapper .image {
+  flex: 1 1 auto;
+  display: inline-flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.item-detail-wrapper .image img {
+  object-fit: cover;
+  height: 100%;
+}
+@media screen and (min-width: 600px) {
+  .item-detail-wrapper .image {
+    min-width: 250px;
+  }
+}
+@media screen and (max-width: 599px) {
+  .item-detail-wrapper .image {
+    max-height: 300px;
+  }
+}
+.item-detail-wrapper .description {
+  position: relative;
+  display: flex;
+  flex: 1 0 auto;
+  text-align: left;
+  padding: 16px;
+  box-sizing: border-box;
+  min-width: 250px;
+}
+.item-detail-wrapper .description ul.check,
+.item-detail-wrapper .description ul.fat-check {
+  padding-left: 30px;
+}
+.item-detail-wrapper .description ul {
+  margin: 0;
+}
+@media screen and (min-width: 600px), screen and (max-width: 374px) {
+  .item-detail-wrapper .description {
+    flex-direction: column;
+  }
+}
+.item-detail-wrapper .description div {
+  margin-bottom: 1.17em;
+}
+@media screen and (max-width: 599px) and (min-width: 375px) {
+  .item-detail-wrapper .description div {
+    width: 50%;
+    margin-bottom: 64px;
+  }
+  .item-detail-wrapper .description div:not(:first-child) {
+    padding-left: 16px;
+  }
+}
+@media screen and (max-width: 374px) {
+  .item-detail-wrapper .description {
+    flex-direction: column;
+  }
+  .item-detail-wrapper .description div:last-of-type {
+    margin-bottom: 64px;
+  }
+}
+.item-detail-wrapper .description h3 {
+  margin-bottom: 8px;
+}
+.item-detail-wrapper .description h3:first-child {
+  margin-top: 0;
+}
+.item-detail-wrapper .description a.button {
+  position: absolute;
+  bottom: 16px;
+  margin-left: 50%;
+  left: -75px;
 }

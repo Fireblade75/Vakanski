@@ -18,5 +18,15 @@ _.onReady(function onReady() {
             ),
         );
         _('#category-section').append(category);
+        for (let i = 0; i < response.featuredLocations.length; i++) {
+            loadFeaturedLocation(response.featuredLocations[i]);
+        }
     });
 });
+
+function loadFeaturedLocation(index) {
+    DataManager.getLocation(index, function handle(response) {
+        const locationCard = new LocationCard(response);
+        _('#location-row').append(locationCard);
+    });
+}

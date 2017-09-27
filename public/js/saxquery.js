@@ -1,6 +1,6 @@
 'use strict';
 
-class _object {
+class SaxElement {
     constructor(tag) {
         if (tag === null) {
             this.objects = [];
@@ -12,7 +12,7 @@ class _object {
                 const element = tag[i];
                 if (element instanceof HTMLElement) {
                     this.objects.push(element);
-                } else if (element instanceof _object) {
+                } else if (element instanceof SaxElement) {
                     for (let j = 0; j < element.objects.length; j++) {
                         this.objects.push(element.objects[j]);
                     }
@@ -24,7 +24,7 @@ class _object {
             this.objects = [];
             const elements = document.getElementsByClassName(tag.substr(1));
             if (elements.length === 0) {
-                throw Error('No items of class " + tag + " found.');
+                throw Error(`No items of class ${tag} found.`);
             }
             for (let i = 0; i < elements.length; ++i) {
                 this.objects.push(elements[i]);
@@ -42,7 +42,7 @@ class _object {
     }
 
     get(index) {
-        return new _object(this.getElement(index));
+        return new SaxElement(this.getElement(index));
     }
 
     val(value = null) {
@@ -53,6 +53,16 @@ class _object {
             this.objects[i].value = value;
         }
         return value;
+    }
+
+    src(source = null) {
+        if (source === null) {
+            return this.objects[0].src;
+        }
+        for (let i = 0; i < this.objects.length; i++) {
+            this.objects[i].src = source;
+        }
+        return source;
     }
 
     css(propertyName, value) {
@@ -88,7 +98,7 @@ class _object {
                 this.objects[i].innerHTML = '';
                 this.objects[i].appendChild(html);
             }
-        } else if (html instanceof _virtualObject) {
+        } else if (html instanceof VirtualElement) {
             for (let i = 0; i < this.objects.length; i++) {
                 this.objects[i].innerHTML = '';
                 this.objects[i].appendChild(html.toHtml());
@@ -110,7 +120,7 @@ class _object {
                 for (let i = 0; i < this.objects.length; i++) {
                     this.objects[i].appendChild(elements[elem]);
                 }
-            } else if (elements[elem] instanceof _virtualObject) {
+            } else if (elements[elem] instanceof VirtualElement) {
                 for (let i = 0; i < this.objects.length; i++) {
                     this.objects[i].appendChild(elements[elem].toHtml());
                 }
@@ -207,24 +217,24 @@ class _object {
                 childNodes.push(this.objects[i].children[j]);
             }
         }
-        return new _object(childNodes);
+        return new SaxElement(childNodes);
     }
 
     filter(filterStr) {
         const queryFilter = new QueryFilter(filterStr);
         const pureObjects = queryFilter.filter(this.objects);
         if (pureObjects.length > 0) {
-            return new _object(pureObjects);
+            return new SaxElement(pureObjects);
         }
         return null;
     }
 
     first(n = null) {
-        return new _object(_.first(this.objects, n));
+        return new SaxElement(_.first(this.objects, n));
     }
 
     last(n = null) {
-        return new _object(_.last(this.objects, n));
+        return new SaxElement(_.last(this.objects, n));
     }
 
     prependNode(node) {
@@ -282,11 +292,11 @@ class _object {
         for (let i = 0; i < this.objects.length; i++) {
             newObjects.push(this.objects[i].cloneNode(deep));
         }
-        return new _object(newObjects);
+        return new SaxElement(newObjects);
     }
 }
 
-class _virtualObject {
+class VirtualElement {
     constructor(object) {
         this.object = object;
     }
@@ -305,7 +315,7 @@ class _virtualObject {
                 const childNode = this.object.childNodes[i];
                 if (typeof childNode === 'string' || typeof childNode === 'number') {
                     node.appendChild(document.createTextNode(childNode));
-                } else if (childNode instanceof _virtualObject) {
+                } else if (childNode instanceof VirtualElement) {
                     node.appendChild(childNode.toHtml());
                 } else {
                     throw Error('Unsupported child node type found!');
@@ -316,22 +326,36 @@ class _virtualObject {
     }
 }
 
+class SaxComponent extends VirtualElement {
+    constructor() {
+        super(null);
+    }
+
+    toHtml() {
+        return this.render().toHtml();
+    }
+
+    render() {
+        throw new Error('Abstract method render was called.');
+    }
+}
+
 let _ = function select(tag) {
-    return new _object(tag);
+    return new SaxElement(tag);
 };
 
 _.create = function createElement(tag, attributes, ...childNodes) {
     if (childNodes.length === 1 && Array.isArray(childNodes[0])) {
         childNodes = _.first(childNodes);
     }
-    if (typeof attributes === 'string' || typeof attributes === 'number' || attributes instanceof _virtualObject) {
+    if (typeof attributes === 'string' || typeof attributes === 'number' || attributes instanceof VirtualElement) {
         childNodes.unshift(attributes);
         attributes = {};
     }
     if (attributes === undefined) {
         attributes = {};
     }
-    return new _virtualObject({ tag, attributes, childNodes });
+    return new VirtualElement({ tag, attributes, childNodes });
 };
 
 _.displayArr = [];
@@ -351,7 +375,12 @@ _.get = function get(url, data, handler) {
     httpRequest.onreadystatechange = function onPorgress() {
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
-                const response = JSON.parse(httpRequest.responseText);
+                let response;
+                try {
+                    response = JSON.parse(httpRequest.responseText);
+                } catch (e) {
+                    response = httpRequest.responseText;
+                }
                 handler(response);
             }
         }
@@ -372,7 +401,12 @@ _.post = function post(url, data, handler) {
     httpRequest.onreadystatechange = function onPorgress() {
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
-                const response = JSON.parse(httpRequest.responseText);
+                let response;
+                try {
+                    response = JSON.parse(httpRequest.responseText);
+                } catch (e) {
+                    response = httpRequest.responseText;
+                }
                 handler(response);
             }
         }
@@ -437,15 +471,20 @@ _.toHTMLElements = function toHTMLElements(...nodes) {
     for (let i = 0; i < nodes.length; i++) {
         if (nodes[i] instanceof HTMLElement) {
             result.push(nodes[i]);
-        } else if (nodes[i] instanceof _virtualObject) {
+        } else if (nodes[i] instanceof VirtualElement) {
             result.push(nodes[i].toHtml());
-        } else if (nodes[i] instanceof _object) {
+        } else if (nodes[i] instanceof SaxElement) {
             for (let j = 0; j < nodes[i].objects.length; j++) {
                 result.push(nodes[i].objects[j]);
             }
         }
     }
     return result;
+};
+
+_.formatCurrency = function formatCurrency(value, currencySign = '$', decimalMark = '.') {
+    const resultValue = value.toFixed(2).replace('.', decimalMark);
+    return `${currencySign} ${resultValue}`;
 };
 
 class QueryFilter {

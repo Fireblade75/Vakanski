@@ -3,24 +3,28 @@
         "title": "Ski\u00EBn",
         "tag": "skiing",
         "img": "img/skiing.png",
-        "description": "Op twee latten van de berg af."
+        "description": "Op twee latten van de berg af.",
+        "featuredLocations": [1, 3]
     },
     {
         "title": "Snowboarden",
         "tag": "snowboarding",
         "img": "img/snowboarding.png",
-        "description": "Op een snowboard van de berg af glijden."
+        "description": "Op een snowboard van de berg af glijden.",
+        "featuredLocations": [1, 4]
     },
     {
         "title": "Langlaufen",
         "tag": "cross-country-skiing",
         "img": "img/cross_country_skiing.png",
-        "description": "Lekker een biertje drinken met je vrienden na een dag lang in de kou."
+        "description": "Lekker een biertje drinken met je vrienden na een dag lang in de kou.",
+        "featuredLocations": [4, 5]
     },
     {
         "title": "Apr\u00E8s-ski",
         "tag": "after_skiing",
         "img": "img/after_skiing.png",
-        "description": "Lekker een biertje drinken met je vrienden na een dag lang in de kou."
+        "description": "Lekker een biertje drinken met je vrienden na een dag lang in de kou.",
+        "featuredLocations": [2, 3]
     }
 ]

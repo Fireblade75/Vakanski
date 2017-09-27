@@ -1,0 +1,127 @@
+[
+    {
+        "id": 1,
+        "name": "Rasmushof Kitzbuehel",
+        "location": "Kitzb\u00FChel",
+        "img": "img/hotels/rasmushof-kitzbuehel.png",
+        "traits": [
+            "Inclusief ontbijt",
+            "Gratis WiFi",
+            "Apr\u00E8s-ski bar"
+        ],
+        "prices": [
+            {
+                "days": 8,
+                "price": 607
+            },
+            {
+                "days": 10,
+                "price": 821
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "location": "Mayrhofen",
+        "name": "Wirtshaus zum Griena",
+        "img": "img/hotels/wirtshaus-zum-griena.png",
+        "traits": [
+            "Gratis WiFi",
+            "Mooi uitzicht"
+        ],
+        "prices": [
+            {
+                "days": 3,
+                "price": 274
+            },
+            {
+                "days": 7,
+                "price": 621
+            },
+            {
+                "days": 11,
+                "price": 783
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Franko-Suisse beim Zoll",
+        "location": "Saint-Cergue",
+        "country": "Oostenrijk",
+        "img": "img/hotels/franko-suisse-beim-zoll.png",
+        "traits": [
+            "Gratis WiFi",
+            "Mooi dorpje"
+        ],
+        "prices": [
+            {
+                "days": 7,
+                "price": 921
+            },
+            {
+                "days": 14,
+                "price": 1683
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Gasthof Schoepf Gries",
+        "location": "L\u00E4ngenfeld",
+        "country": "Oostenrijk",
+        "img": "img/hotels/gasthof-schoepf-gries.png",
+        "traits": [
+            "Gratis WiFi",
+            "Mooi dorpje"
+        ],
+        "prices": [
+            {
+                "days": 10,
+                "price": 521
+            },
+            {
+                "days": 14,
+                "price": 621
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Warnsdorfer H\u00FCtte",
+        "location": "Warnsdorf",
+        "country": "Oostenrijk",
+        "img": "img/hotels/warnsdorfer-hutte.png",
+        "traits": [
+            "Afgelegen locatie",
+            "Ruig terrein"
+        ],
+        "prices": [
+            {
+                "days": 3,
+                "price": 147
+            },
+            {
+                "days": 7,
+                "price": 320
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Wieserhof",
+        "location": "Innsbruck",
+        "country": "Oostenrijk",
+        "img": "img/hotels/wieserhof.png",
+        "traits": [
+            "Grote stad",
+            "Monumentaal pand"
+        ],
+        "prices": [
+            {
+                "days": 9,
+                "price": 620
+            }
+        ]
+    }
+]
