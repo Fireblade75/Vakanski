@@ -71,16 +71,22 @@ class SaxElement {
         }
     }
 
-    onClick(func) {
+    onEvent(name, handler) {
         for (let i = 0; i < this.objects.length; i++) {
-            this.objects[i].addEventListener('click', func);
+            this.objects[i].addEventListener(name, handler);
         }
     }
 
-    onInput(func) {
-        for (let i = 0; i < this.objects.length; i++) {
-            this.objects[i].addEventListener('input', func);
-        }
+    onClick(handler) {
+        this.onEvent('click', handler);
+    }
+
+    onInput(handler) {
+        this.onEvent('input', handler);
+    }
+
+    onSubmit(handler) {
+        this.onEvent('submit', handler);
     }
 
     setEnabled(bool) {
@@ -291,19 +297,19 @@ class SaxElement {
     }
 
     removeChild(node) {
-        let domNodes;
-        const commands = ['fist', 'last'];
-        if (commands.indexOf(node) === -1 && !(node instanceof Number)) {
+        let domNodes = null;
+        const commands = ['first', 'last'];
+        if (commands.indexOf(node) === -1 && !(Number.isInteger(node))) {
             domNodes = _.toHTMLElements(node);
         }
         for (let i = 0; i < this.objects.length; i++) {
-            if (domNodes !== undefined) {
+            if (domNodes !== null) {
                 for (let j = 0; j < domNodes.length; j++) {
                     this.objects[i].removeChild(domNodes[j]);
                 }
             } else {
                 const children = this.get(i).children();
-                if (node instanceof Number) {
+                if (Number.isInteger(node)) {
                     this.objects[i].removeChild(children.objects[node]);
                 } else if (node === 'first') {
                     this.objects[i].removeChild(_.first(children.objects));

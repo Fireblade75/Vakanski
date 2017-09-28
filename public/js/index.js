@@ -11,5 +11,5 @@ _.onReady(function init() {
 
 function addActivity(json) {
     const activityCard = new ActivityCard(json);
-    _('#activities-row').append(activityCard);
+    _('#activities-row').appendNode(activityCard);
 }
