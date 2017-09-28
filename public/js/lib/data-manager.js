@@ -19,6 +19,10 @@ class DataManager {
         });
     }
 
+    static getAllLocations(handler) {
+        _.get('api/locations.json', handler);
+    }
+
     static getLocation(id, successHandler, errorHandler) {
         _.get('api/locations.json', function search(response) {
             let succes = false;

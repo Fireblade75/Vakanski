@@ -111,25 +111,6 @@ class SaxElement {
         return html;
     }
 
-    append(elements) {
-        if (!Array.isArray(elements)) {
-            elements = [elements];
-        }
-        for (let elem = 0; elem < elements.length; elem++) {
-            if (elements[elem] instanceof HTMLElement) {
-                for (let i = 0; i < this.objects.length; i++) {
-                    this.objects[i].appendChild(elements[elem]);
-                }
-            } else if (elements[elem] instanceof VirtualElement) {
-                for (let i = 0; i < this.objects.length; i++) {
-                    this.objects[i].appendChild(elements[elem].toHtml());
-                }
-            } else {
-                throw Error('Can only append HTMLElements!');
-            }
-        }
-    }
-
     clear() {
         for (let i = 0; i < this.objects.length; i++) {
             this.objects[i].innerHTML = '';
@@ -210,6 +191,14 @@ class SaxElement {
         }
     }
 
+    parent() {
+        const parentNodes = [];
+        for (let i = 0; i < this.objects.length; i++) {
+            parentNodes.push(this.objects[i].parentNode);
+        }
+        return new SaxElement(parentNodes);
+    }
+
     children() {
         const childNodes = [];
         for (let i = 0; i < this.objects.length; i++) {
@@ -254,11 +243,49 @@ class SaxElement {
         }
     }
 
+    append(elements) {
+        // if (!Array.isArray(elements)) {
+        //     elements = [elements];
+        // }
+        // for (let elem = 0; elem < elements.length; elem++) {
+        //     if (elements[elem] instanceof HTMLElement) {
+        //         for (let i = 0; i < this.objects.length; i++) {
+        //             this.objects[i].appendChild(elements[elem]);
+        //         }
+        //     } else if (elements[elem] instanceof VirtualElement) {
+        //         for (let i = 0; i < this.objects.length; i++) {
+        //             this.objects[i].appendChild(elements[elem].toHtml());
+        //         }
+        //     } else {
+        //         throw Error('Can only append HTMLElements!');
+        //     }
+        // }
+        this.appendNode(elements);
+        console.warn('You are using the deprecated fucntion \'append\', use appendNode instead.');
+    }
+
     appendNode(node) {
         const domNodes = _.toHTMLElements(node);
         for (let i = 0; i < this.objects.length; i++) {
             for (let j = 0; j < domNodes.length; j++) {
                 this.objects[i].appendChild(domNodes[j]);
+            }
+        }
+    }
+
+    replaceNode(newNode) {
+        let domNode = _.toHTMLElements(newNode);
+        if (domNode.length > 1) {
+            throw Error('Cannot replace node with multiple nodes.');
+        } else {
+            domNode = _.first(domNode);
+        }
+        for (let i = 0; i < this.objects.length; i++) {
+            const parent = this.objects[i].parentNode;
+            if (parent instanceof HTMLElement) {
+                parent.replaceChild(domNode, this.objects[i]);
+            } else {
+                throw Error('Cannot replace this node.');
             }
         }
     }

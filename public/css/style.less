@@ -358,7 +358,7 @@ section:not(:last-of-type) {
 }
 
 .image-row-section .row,
-#card-section .row {
+.card-section .row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -367,7 +367,7 @@ section:not(:last-of-type) {
     margin-right: auto;
 }
 
-#card-section {
+.card-section {
     padding: 48px 16px;
 }
 
@@ -410,9 +410,9 @@ a.row {
     }
 }
 
-.object#card,
-.object#card:hover,
-.object#card:visited {
+.object-card,
+.object-card:hover,
+.object-card:visited {
     border: 2px solid @colorPrimary;
     overflow: hidden;
     border-radius: 16px;
@@ -544,8 +544,12 @@ a.row {
 
 
 #search-bar {
-    margin: 48px auto 48px;
-    max-width: 800px;
+    margin: 48px auto;
+    max-width: 840px;
+    @media screen and (max-width:903px) {
+        max-width: 404px;
+        margin: 16px auto;
+    }
 }
 
 #search-bar > form {

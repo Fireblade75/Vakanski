@@ -42,3 +42,17 @@ class ActivityCard extends SaxComponent {
         );
     }
 }
+
+class LocationRow extends SaxComponent {
+    constructor(jsonArray) {
+        super();
+        this.children = [];
+        for (let i = 0; i < jsonArray.length; i++) {
+            this.children.push(new LocationCard(jsonArray[i]));
+        }
+    }
+
+    render() {
+        return _.create('div', { class: 'row' }, this.children);
+    }
+}
