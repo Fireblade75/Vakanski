@@ -65,7 +65,7 @@ class ActivityCard extends SaxComponent {
     }
 
     render() {
-        return _.create('a', { class: 'actionImage' },
+        return _.create('a', { class: 'actionImage', href: `activity.html?activity=${this.state.tag}` },
             _.create('img', { src: this.state.img, alt: this.state.title }),
             _.create('span', this.state.title),
         );
