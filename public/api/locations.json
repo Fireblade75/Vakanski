@@ -1,8 +1,9 @@
 [
     {
         "id": 1,
-        "name": "Rasmushof Kitzbuehel",
+        "name": "Rasmushof Kitzb\u00FChel",
         "location": "Kitzb\u00FChel",
+        "country": "Oostenrijk",
         "img": "img/hotels/rasmushof-kitzbuehel.png",
         "traits": [
             "Inclusief ontbijt",
@@ -22,8 +23,9 @@
     },
     {
         "id": 2,
-        "location": "Mayrhofen",
         "name": "Wirtshaus zum Griena",
+        "location": "Mayrhofen",
+        "country": "Oostenrijk",
         "img": "img/hotels/wirtshaus-zum-griena.png",
         "traits": [
             "Gratis WiFi",
@@ -48,7 +50,7 @@
         "id": 3,
         "name": "Franko-Suisse beim Zoll",
         "location": "Saint-Cergue",
-        "country": "Oostenrijk",
+        "country": "Zwitserland",
         "img": "img/hotels/franko-suisse-beim-zoll.png",
         "traits": [
             "Gratis WiFi",
@@ -121,6 +123,58 @@
             {
                 "days": 9,
                 "price": 620
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "H\u00F4tel Mareschal",
+        "location": "Besan\u00E7on",
+        "country": "Frankrijk",
+        "img": "img/hotels/hotel-mareschal-besancon.png",
+        "traits": [
+            "Gezelige hotel",
+            "Mooie natuur",
+            "Rijke cultuur"
+        ],
+        "prices": [
+            {
+                "days": 4,
+                "price": 420
+            },
+            {
+                "days": 9,
+                "price": 840
+            },
+            {
+                "days": 15,
+                "price": 1260
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "H\u00F4tel Alviset",
+        "location": "Besan\u00E7on",
+        "country": "Frankrijk",
+        "img": "img/hotels/hotel-alviset-besancon.png",
+        "traits": [
+            "Luxe hotel",
+            "Mooie natuur",
+            "Rijke cultuur"
+        ],
+        "prices": [
+            {
+                "days": 5,
+                "price": 620
+            },
+            {
+                "days": 7,
+                "price": 800
+            },
+            {
+                "days": 14,
+                "price": 1460
             }
         ]
     }

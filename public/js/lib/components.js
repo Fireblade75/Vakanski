@@ -6,28 +6,34 @@ class LocationCard extends SaxComponent {
     }
 
     filter(filterObj) {
-        if (filterObj.hasOwnProperty('country') && filterObj.country !== this.state.country) {
-            return false;
+        console.log(filterObj);
+        if (filterObj.hasOwnProperty('country')) {
+            if (filterObj.country.toLowerCase() !== this.state.country.toLowerCase()) {
+                return false;
+            }
         }
         if (filterObj.hasOwnProperty('days')) {
-            for (let i = 0; i < this.state.prices; i++) {
-                let success = false;
-                if (this.state.prices[i].days === filterObj.days) {
-                    success = true;
-                    if (filterObj.hasOwnProperty('price')) {
-                        return this.state.prices[i].price <= filterObj.price;
+            for (let i = 0; i < this.state.prices.length; i++) {
+                if (this.state.prices[i].days >= filterObj.days.min) {
+                    if (this.state.prices[i].days <= filterObj.days.max) {
+                        if (filterObj.hasOwnProperty('price')) {
+                            if (this.state.prices[i].price <= filterObj.price) {
+                                return true;
+                            }
+                        } else {
+                            return true;
+                        }
                     }
                 }
-                if (!success) {
-                    return false;
-                }
             }
+            return false;
         } else if (filterObj.hasOwnProperty('price')) {
-            for (let i = 0; i < this.state.prices; i++) {
-                if (this.state.prices[i].price === filterObj.price) {
+            for (let i = 0; i < this.state.prices.length; i++) {
+                if (this.state.prices[i].price <= filterObj.price) {
                     return true;
                 }
             }
+            return false;
         }
         return true;
     }
@@ -70,12 +76,28 @@ class LocationRow extends SaxComponent {
     constructor(propsArr) {
         super();
         this.children = [];
+        this.filter = null;
         for (let i = 0; i < propsArr.length; i++) {
             this.children.push(new LocationCard(propsArr[i]));
         }
     }
 
+    addFilter(filter) {
+        this.filter = filter;
+    }
+
     render() {
-        return _.create('div', { class: 'row' }, this.children);
+        let renderChildren = [];
+        if (this.filter !== null) {
+            for (let i = 0; i < this.children.length; i++) {
+                if (this.children[i].filter(this.filter)) {
+                    renderChildren.push(this.children[i]);
+                }
+            }
+        } else {
+            renderChildren = this.children;
+        }
+
+        return _.create('div', { id: 'location-row', class: 'row' }, renderChildren);
     }
 }

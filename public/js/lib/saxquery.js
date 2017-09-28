@@ -250,22 +250,6 @@ class SaxElement {
     }
 
     append(elements) {
-        // if (!Array.isArray(elements)) {
-        //     elements = [elements];
-        // }
-        // for (let elem = 0; elem < elements.length; elem++) {
-        //     if (elements[elem] instanceof HTMLElement) {
-        //         for (let i = 0; i < this.objects.length; i++) {
-        //             this.objects[i].appendChild(elements[elem]);
-        //         }
-        //     } else if (elements[elem] instanceof VirtualElement) {
-        //         for (let i = 0; i < this.objects.length; i++) {
-        //             this.objects[i].appendChild(elements[elem].toHtml());
-        //         }
-        //     } else {
-        //         throw Error('Can only append HTMLElements!');
-        //     }
-        // }
         this.appendNode(elements);
         console.warn('You are using the deprecated fucntion \'append\', use appendNode instead.');
     }
