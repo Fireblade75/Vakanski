@@ -6,39 +6,49 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="js/saxquery.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/contact.js"></script>
     <title>Vakanski contact</title>
-    
+
 </head>
 
 <body>
     <header>
         <div class="page-wrapper">
-            <img id="header-icon" src="https://png.icons8.com/safari-filled/ios7/50" alt="logo">
-            <span id="header-title">Vakanski</span>
+            <img id="header-icon" src="img/logo-white.svg" alt="logo">
+            <div id="header-title">Vakanski</div>
 
-            <nav>
+            <nav id="header-links">
                 <a href="index.html">Home</a>
-                <a href="#">Reizen</a>
-                <a href="#">Activiteiten</a>
+                <a href="reizen.html">Reizen</a>
+                <a href="activiteiten.html">Activiteiten</a>
                 <a href="contact.html">Contact</a>
             </nav>
-        </div>
+            <img id="hamburger-icon" src="img/menu_icon.svg" alt="menu">
     </header>
-    
-        <div class="contact-main">
-            <img src="img/Callcenter03.jpg" alt="contact">
-            <div class="contact-intro">
-                <h1 class="contact-intro-header">
-                    Contact opnemen
-                </h1>
-                <div class="contact-intro-text">
-                    Heeft u hulp nodig bij uw boekig of met een andere service van vakanski? Wij zorgen ervoor dat u de hulp krijgt die je nodig
-                    hebt!
-                </div>
-                <button>Aan de slag!</button>
+    <div id="header-shadow"></div>
+    <nav id="dropdown-links">
+        <a href="index.html">Home</a>
+        <a href="reizen.html">Reizen</a>
+        <a href="activiteiten.html">Activiteiten</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="contact-main">
+        <img src="img/Callcenter03.jpg" alt="contact">
+        <div class="contact-intro">
+            <h1 class="contact-intro-header">
+                Contact opnemen
+            </h1>
+            <div class="contact-intro-text">
+                Heeft u hulp nodig bij uw boekig of met een andere service van vakanski? Wij zorgen ervoor dat u de hulp krijgt die je nodig
+                hebt!
             </div>
+            <button id="contact-button">Aan de slag!</button>
         </div>
-    
+    </div>
+
     <footer>
         <div class="page-wrapper split-footer">
             <div>
