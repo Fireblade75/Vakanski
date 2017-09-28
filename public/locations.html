@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+    <title>Vakanski</title>
+    <script src="js/lib/saxquery.js"></script>
+    <script src="js/lib/data-manager.js"></script>
+    <script src="js/lib/components.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/location.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="page-wrapper">
+            <img id="header-icon" src="img/logo-white.svg" alt="logo">
+            <div id="header-title">Vakanski</div>
+
+            <nav id="header-links">
+                <a href="index.html">Home</a>
+                <a href="locations.html">Reizen</a>
+                <a href="activities.html">Activiteiten</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <img id="hamburger-icon" src="img/menu_icon.svg" alt="menu">
+        </div>
+    </header>
+    <div id="header-shadow"></div>
+    <nav id="dropdown-links">
+        <a href="index.html">Home</a>
+        <a href="locations.html">Reizen</a>
+        <a href="activities.html">Activiteiten</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <section>
+        <div id="search-bar">
+            <form>
+                <span class="select">        
+                        <select>
+                            <option>Land</option>
+                            <option>Oostenrijk</option>
+                            <option>Frankrijk</option>
+                            <option>Zwitserland</option>
+                        </select>
+                    </span>
+                <span class="select">
+                        <select>
+                            <option>Prijs</option>
+                            <option>&lt; &euro; 400,-</option>
+                            <option>&lt; &euro; 600,-</option>
+                            <option>&lt; &euro; 800,-</option>
+                            <option>&lt; &euro; 1000,-</option>
+                            <option>&lt; &euro; 1400,-</option>
+                            <option>&lt; &euro; 2000,-</option>
+                        </select>
+                    </span>
+                <span class="select">
+                        <select>
+                            <option>Dagen</option>
+                            <option>1 tot 6</option>
+                            <option>7 tot 13</option>
+                            <option>14 tot 19</option>
+                        </select>
+                    </span>
+                <button>Zoeken</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="page-wrapper split-footer">
+            <div>
+                <span>
+                    Copyright &copy; Vakanski B.V.<br>
+                    Tel. 0800 146 312<br>
+                    Met dank aan: <a href="#">credits</a>
+                </span>
+            </div>
+            <div class="footer-buttons">
+                <a href="http://facebook.com" class="button facebook">Facebook</a>
+                <a href="http://twitter.com" class="button twitter">Twitter</a>
+                <a href="http://youtube.com" class="button youtube">Youtube</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

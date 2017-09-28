@@ -1,7 +1,7 @@
 class Carrousel {
     constructor(tag) {
         if (tag === undefined) {
-            tag = '.carrousel';
+            tag = '#carrousel';
         }
         this.carrousel = _(tag).children().filter('.background');
         this.milliseconds = 5000;

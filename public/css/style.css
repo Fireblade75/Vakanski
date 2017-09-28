@@ -73,6 +73,52 @@ section:last-of-type {
     border-right: 2px solid transparent;
   }
 }
+#carrousel {
+  position: relative;
+  border-bottom: 2px solid #0d47a1;
+  text-align: center;
+  height: 400px;
+}
+#carrousel > .background {
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+#carrousel .foto {
+  width: 1000px;
+  height: 400px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  flex: 0 0 auto;
+  background-position: 50%;
+  transition: width 0.8s;
+}
+@media screen and (max-width: 417px) {
+  #carrousel .foto {
+    transition: width 0.4s;
+  }
+}
+#carrousel .foto:first-child {
+  width: 0px;
+}
+#carrousel .foto:nth-child(n+7) {
+  width: 0px;
+}
+#carrousel > form {
+  position: absolute;
+  width: 100%;
+  bottom: 24px;
+  text-align: center;
+  line-height: 40px;
+}
+#carrousel > form span.select:after {
+  margin-top: -6px;
+}
 html {
   height: 100%;
 }
@@ -322,52 +368,6 @@ ul.no-decoration {
   list-style: none;
   padding-left: 0;
 }
-.carrousel {
-  position: relative;
-  border-bottom: 2px solid #0d47a1;
-  text-align: center;
-  height: 400px;
-}
-.carrousel > .background {
-  position: absolute;
-  z-index: -1;
-  top: 0px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  overflow: hidden;
-}
-.carrousel .foto {
-  width: 1000px;
-  height: 400px;
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
-  flex: 0 0 auto;
-  background-position: 50%;
-  transition: width 0.8s;
-}
-@media screen and (max-width: 417px) {
-  .carrousel .foto {
-    transition: width 0.4s;
-  }
-}
-.carrousel .foto:first-child {
-  width: 0px;
-}
-.carrousel .foto:nth-child(n+7) {
-  width: 0px;
-}
-.carrousel > form {
-  position: absolute;
-  width: 100%;
-  bottom: 24px;
-  text-align: center;
-  line-height: 40px;
-}
-.carrousel > form span.select:after {
-  margin-top: -6px;
-}
 .contact-main {
   display: flex;
   flex-wrap: wrap;
@@ -436,7 +436,7 @@ section:not(:last-of-type) {
   border-bottom: 2px solid #0d47a1;
 }
 .image-row-section .row,
-.card-section .row {
+#card-section .row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -444,7 +444,7 @@ section:not(:last-of-type) {
   margin-left: auto;
   margin-right: auto;
 }
-.card-section {
+#card-section {
   padding: 48px 16px;
 }
 .row {
@@ -486,9 +486,9 @@ a.row {
     text-align: center;
   }
 }
-.object-card,
-.object-card:hover,
-.object-card:visited {
+.object#card,
+.object#card:hover,
+.object#card:visited {
   border: 2px solid #0d47a1;
   overflow: hidden;
   border-radius: 16px;
@@ -498,62 +498,62 @@ a.row {
   height: 200px;
   color: black;
 }
-.object-card .image,
-.object-card:hover .image,
-.object-card:visited .image,
-.object-card .description,
-.object-card:hover .description,
-.object-card:visited .description {
+.object#card .image,
+.object#card:hover .image,
+.object#card:visited .image,
+.object#card .description,
+.object#card:hover .description,
+.object#card:visited .description {
   max-width: 50%;
   height: 100%;
   display: inline-block;
   vertical-align: middle;
 }
-.object-card .image,
-.object-card:hover .image,
-.object-card:visited .image {
+.object#card .image,
+.object#card:hover .image,
+.object#card:visited .image {
   display: inline-flex;
   justify-content: center;
   overflow: hidden;
 }
-.object-card .image img,
-.object-card:hover .image img,
-.object-card:visited .image img {
+.object#card .image img,
+.object#card:hover .image img,
+.object#card:visited .image img {
   height: 100%;
 }
-.object-card .description,
-.object-card:hover .description,
-.object-card:visited .description {
+.object#card .description,
+.object#card:hover .description,
+.object#card:visited .description {
   font-size: initial;
   box-sizing: border-box;
   padding: 10px;
 }
-.object-card .description h3,
-.object-card:hover .description h3,
-.object-card:visited .description h3,
-.object-card .description ul,
-.object-card:hover .description ul,
-.object-card:visited .description ul {
+.object#card .description h3,
+.object#card:hover .description h3,
+.object#card:visited .description h3,
+.object#card .description ul,
+.object#card:hover .description ul,
+.object#card:visited .description ul {
   margin: 8px 0;
 }
-.object-card .description ul,
-.object-card:hover .description ul,
-.object-card:visited .description ul {
+.object#card .description ul,
+.object#card:hover .description ul,
+.object#card:visited .description ul {
   height: 140px;
   overflow: hidden;
   display: block;
 }
-.object-card .description ul.check,
-.object-card:hover .description ul.check,
-.object-card:visited .description ul.check,
-.object-card .description ul.fat-check,
-.object-card:hover .description ul.fat-check,
-.object-card:visited .description ul.fat-check {
+.object#card .description ul.check,
+.object#card:hover .description ul.check,
+.object#card:visited .description ul.check,
+.object#card .description ul.fat-check,
+.object#card:hover .description ul.fat-check,
+.object#card:visited .description ul.fat-check {
   padding-left: 30px;
 }
-.object-card .description ul,
-.object-card:hover .description ul,
-.object-card:visited .description ul {
+.object#card .description ul,
+.object#card:hover .description ul,
+.object#card:visited .description ul {
   margin: 0;
 }
 .item-detail-wrapper {
@@ -647,4 +647,21 @@ a.row {
   bottom: 16px;
   margin-left: 50%;
   left: -75px;
+}
+#search-bar {
+  margin: 48px auto 48px;
+  max-width: 800px;
+}
+#search-bar > form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 4px 16px;
+  background-color: #f2f2f2;
+  border: 2px solid #0d47a1;
+  border-radius: 16px;
+}
+#search-bar span,
+#search-bar button {
+  margin: 4px;
 }

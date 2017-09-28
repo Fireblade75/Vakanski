@@ -1,5 +1,7 @@
 @import "vars";
 @import "footer";
+@import "carrousel";
+
 html {
     height: 100%;
 }
@@ -282,58 +284,6 @@ ul.no-decoration {
     padding-left: 0;
 }
 
-.carrousel {
-    position: relative;
-    border-bottom: 2px solid @colorPrimary;
-    text-align: center;
-    height: 400px;
-}
-
-.carrousel>.background {
-    position: absolute;
-    z-index: -1;
-    top: 0px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    overflow: hidden;
-}
-
-.carrousel .foto {
-    width: 1000px;
-    height: 400px;
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    flex: 0 0 auto;
-    background-position: 50%;
-    transition: width 0.8s;
-    @media screen and (max-width: 417px) {
-        transition: width 0.4s;
-    }
-}
-
-.carrousel .foto:first-child {
-    width: 0px;
-}
-
-.carrousel .foto:nth-child(n+7) {
-    width: 0px;
-}
-
-.carrousel>form {
-    position: absolute;
-    width: 100%;
-    bottom: 32px - 8px;
-    text-align: center;
-    line-height: 40px;
-}
-
-// Becouse of the unnatural line-height the arrow margin must be corrected
-.carrousel>form span.select:after {
-    margin-top: -6px;
-}
-
 .contact-main {
     display: flex;
     flex-wrap: wrap;
@@ -408,7 +358,7 @@ section:not(:last-of-type) {
 }
 
 .image-row-section .row,
-.card-section .row {
+#card-section .row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -417,7 +367,7 @@ section:not(:last-of-type) {
     margin-right: auto;
 }
 
-.card-section {
+#card-section {
     padding: 48px 16px;
 }
 
@@ -460,9 +410,9 @@ a.row {
     }
 }
 
-.object-card,
-.object-card:hover,
-.object-card:visited {
+.object#card,
+.object#card:hover,
+.object#card:visited {
     border: 2px solid @colorPrimary;
     overflow: hidden;
     border-radius: 16px;
@@ -590,4 +540,25 @@ a.row {
             left: -75px;
         }
     }
+}
+
+
+#search-bar {
+    margin: 48px auto 48px;
+    max-width: 800px;
+}
+
+#search-bar > form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 4px 16px;
+    background-color: #f2f2f2;
+    border: 2px solid @colorPrimary;
+    border-radius: 16px;
+}
+
+#search-bar span,
+#search-bar button {
+    margin: 4px;
 }

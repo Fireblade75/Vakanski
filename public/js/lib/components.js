@@ -1,7 +1,7 @@
 
 class LocationCard extends SaxComponent {
     constructor(json) {
-        super(null);
+        super();
         this.id = json.id;
         this.name = json.name;
         this.image = json.img;
@@ -14,7 +14,7 @@ class LocationCard extends SaxComponent {
             traitElements.push(_.create('li', this.traits[i]));
         }
 
-        return _.create('a', { class: 'object-card', href: `reis.html?id=${this.id}` },
+        return _.create('a', { class: 'object-card', href: `location.html?id=${this.id}` },
             _.create('div', { class: 'image' },
                 _.create('img', { src: this.image }),
             ),
@@ -24,6 +24,21 @@ class LocationCard extends SaxComponent {
                     traitElements,
                 ),
             ),
+        );
+    }
+}
+
+class ActivityCard extends SaxComponent {
+    constructor(json) {
+        super();
+        this.title = json.title;
+        this.image = json.img;
+    }
+
+    render() {
+        return _.create('a', { class: 'actionImage' },
+            _.create('img', { src: this.image, alt: this.title }),
+            _.create('span', this.title),
         );
     }
 }

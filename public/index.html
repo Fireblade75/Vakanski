@@ -8,9 +8,12 @@
     <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
     <title>Vakanski</title>
-    <script src="js/saxquery.js"></script>
-    <script src="js/header.js"></script>
-    <script src="js/carrousel.js"></script>
+    <script src="js/lib/saxquery.js"></script>
+    <script src="js/lib/data-manager.js"></script>
+    <script src="js/lib/components.js"></script>
+    <script src="js/lib/carrousel.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
 </head>
 
 <body>
@@ -21,8 +24,8 @@
 
             <nav id="header-links">
                 <a href="index.html">Home</a>
-                <a href="reizen.html">Reizen</a>
-                <a href="activiteiten.html">Activiteiten</a>
+                <a href="locations.html">Reizen</a>
+                <a href="activities.html">Activiteiten</a>
                 <a href="contact.html">Contact</a>
             </nav>
             <img id="hamburger-icon" src="img/menu_icon.svg" alt="menu">
@@ -31,12 +34,12 @@
     <div id="header-shadow"></div>
     <nav id="dropdown-links">
         <a href="index.html">Home</a>
-        <a href="reizen.html">Reizen</a>
-        <a href="activiteiten.html">Activiteiten</a>
+        <a href="locations.html">Reizen</a>
+        <a href="activities.html">Activiteiten</a>
         <a href="contact.html">Contact</a>
     </nav>
 
-    <div class="carrousel">
+    <div id="carrousel">
         <div class="background">
             <div class="foto" style="background-image: url('../img/carrousel/alpen_2.png');"></div>
             <div class="foto" style="background-image: url('../img/carrousel/oostenrijk_2.png');"></div>
@@ -88,23 +91,7 @@
 
     <section class="image-row-section">
         <h2>Activiteiten</h2>
-        <div class="row">
-            <div class="actionImage">
-                <img src="img/skiing.png" alt="Ski&euml;n" />
-                <span>Skiën</span>
-            </div>
-            <div class="actionImage">
-                <img src="img/snowboarding.png" alt="Snowboarding" />
-                <span>Snowboarden</span>
-            </div>
-            <div class="actionImage">
-                <img src="img/cross_country_skiing.png" alt="Langlaufen" />
-                <span>Langlaufen</span>
-            </div>
-            <div class="actionImage">
-                <img src="img/after_skiing.png" alt="Apr&egrave;s-ski" />
-                <span>Apr&egrave;s-ski</span>
-            </div>
+        <div class="row" id="activities-row">
         </div>
     </section>
 

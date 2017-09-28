@@ -1,0 +1,46 @@
+#carrousel {
+  position: relative;
+  border-bottom: 2px solid #0d47a1;
+  text-align: center;
+  height: 400px;
+}
+#carrousel > .background {
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+#carrousel .foto {
+  width: 1000px;
+  height: 400px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  flex: 0 0 auto;
+  background-position: 50%;
+  transition: width 0.8s;
+}
+@media screen and (max-width: 417px) {
+  #carrousel .foto {
+    transition: width 0.4s;
+  }
+}
+#carrousel .foto:first-child {
+  width: 0px;
+}
+#carrousel .foto:nth-child(n+7) {
+  width: 0px;
+}
+#carrousel > form {
+  position: absolute;
+  width: 100%;
+  bottom: 24px;
+  text-align: center;
+  line-height: 40px;
+}
+#carrousel > form span.select:after {
+  margin-top: -6px;
+}

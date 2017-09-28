@@ -8,10 +8,10 @@
     <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
     <title>Vakanski</title>
-    <script src="js/saxquery.js"></script>
-    <script src="js/header.js"></script>
-    <script src="js/data-manager.js"></script>
-    <script src="js/activities.js"></script>
+    <script src="js/lib/saxquery.js"></script>
+    <script src="js/lib/data-manager.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/location.js"></script>
 </head>
 
 <body>
@@ -22,8 +22,8 @@
 
             <nav id="header-links">
                 <a href="index.html">Home</a>
-                <a href="reizen.html">Reizen</a>
-                <a href="activiteiten.html">Activiteiten</a>
+                <a href="locations.html">Reizen</a>
+                <a href="activities.html">Activiteiten</a>
                 <a href="contact.html">Contact</a>
             </nav>
             <img id="hamburger-icon" src="img/menu_icon.svg" alt="menu">
@@ -32,12 +32,40 @@
     <div id="header-shadow"></div>
     <nav id="dropdown-links">
         <a href="index.html">Home</a>
-        <a href="reizen.html">Reizen</a>
-        <a href="activiteiten.html">Activiteiten</a>
+        <a href="locations.html">Reizen</a>
+        <a href="activities.html">Activiteiten</a>
         <a href="contact.html">Contact</a>
     </nav>
 
-    <section class="split-text-section" id="category-section">
+    <section>
+        <h2 id="location-title">Wirtshaus zum Griena</h2>
+
+        <div class="item-detail-wrapper">
+            <div class="image">
+                <img src="img/mayrhofen.jpg" alt="mayrhofen" id="location-image">
+            </div>
+            <div class="description">
+                <div>
+                    <h3>Eigenschappen</h3>
+                    <ul id="location-traits" class="check">
+                        <li>Inclusief ontbijt</li>
+                        <li>Gratis WiFi</li>
+                        <li>In het centrum</li>
+                        <li>Apr&egrave;s-ski bar</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Locatie</h3>
+                    <span id="location-span">Mayrhofen</span>
+                    <h3>Prijs p.p.</h3>
+                    <ul id="location-prices" class="no-decoration">
+                        <li>10 dagen: &euro; 607,-</li>
+                        <li>14 dagen: &euro; 807,-</li>
+                    </ul>
+                </div>
+                <a href="#" class="button">Reserveer</a>
+            </div>
+        </div>
     </section>
 
     <footer>
