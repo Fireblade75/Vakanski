@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
@@ -11,9 +12,9 @@
     <link rel="manifest" href="manifest.json">
     <title>Vakanski</title>
     <script src="js/lib/saxquery.js"></script>
-    <script src="js/lib/data-manager.js"></script>
     <script src="js/common.js"></script>
-    <script src="js/location.js"></script>
+    <script src="js/contact.js"></script>
+
 </head>
 
 <body>
@@ -24,51 +25,33 @@
 
             <nav id="header-links">
                 <a href="index.html">Home</a>
-                <a href="locations.html">Reizen</a>
-                <a href="activities.html">Activiteiten</a>
+                <a href="reizen.html">Reizen</a>
+                <a href="activiteiten.html">Activiteiten</a>
                 <a href="contact.html">Contact</a>
             </nav>
             <img id="hamburger-icon" src="img/menu_icon.svg" alt="menu">
-        </div>
     </header>
     <div id="header-shadow"></div>
     <nav id="dropdown-links">
         <a href="index.html">Home</a>
-        <a href="locations.html">Reizen</a>
-        <a href="activities.html">Activiteiten</a>
+        <a href="reizen.html">Reizen</a>
+        <a href="activiteiten.html">Activiteiten</a>
         <a href="contact.html">Contact</a>
     </nav>
 
-    <section>
-        <h2 id="location-title">Wirtshaus zum Griena</h2>
-
-        <div class="item-detail-wrapper">
-            <div class="image">
-                <img src="img/mayrhofen.jpg" alt="mayrhofen" id="location-image">
+    <div class="contact-main">
+        <img src="img/Callcenter03.jpg" alt="contact">
+        <div class="contact-intro">
+            <h1 class="contact-intro-header" id="contact-intro-header">
+                Contact opnemen
+            </h1>
+            <div class="contact-intro-text">
+                Heeft u hulp nodig bij uw boekig of met een andere service van vakanski? Wij zorgen ervoor dat u de hulp krijgt die je nodig
+                hebt!
             </div>
-            <div class="description">
-                <div>
-                    <h3>Eigenschappen</h3>
-                    <ul id="location-traits" class="check">
-                        <li>Inclusief ontbijt</li>
-                        <li>Gratis WiFi</li>
-                        <li>In het centrum</li>
-                        <li>Apr&egrave;s-ski bar</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Locatie</h3>
-                    <span id="location-span">Mayrhofen</span>
-                    <h3>Prijs p.p.</h3>
-                    <ul id="location-prices" class="no-decoration">
-                        <li>10 dagen: &euro; 607,-</li>
-                        <li>14 dagen: &euro; 807,-</li>
-                    </ul>
-                </div>
-                <a href="#" class="button">Reserveer</a>
-            </div>
+            <button id="contact-button">Aan de slag!</button>
         </div>
-    </section>
+    </div>
 
     <footer>
         <div class="page-wrapper split-footer">
@@ -76,7 +59,7 @@
                 <span>
                     Copyright &copy; Vakanski B.V.<br>
                     Tel. 0800 146 312<br>
-                    Met dank aan: <a href="#">credits</a>
+                    Met dank aan: <a href="copyright.xml">credits</a>
                 </span>
             </div>
             <div class="footer-buttons">
@@ -86,6 +69,7 @@
             </div>
         </div>
     </footer>
+
 </body>
 
 </html>
