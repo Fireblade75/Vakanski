@@ -82,7 +82,7 @@ section:last-of-type {
 #carrousel > .background {
   position: absolute;
   z-index: -1;
-  top: 0px;
+  top: 0;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -104,10 +104,10 @@ section:last-of-type {
   }
 }
 #carrousel .foto:first-child {
-  width: 0px;
+  width: 0;
 }
 #carrousel .foto:nth-child(n+7) {
-  width: 0px;
+  width: 0;
 }
 #carrousel > form {
   position: absolute;
@@ -145,23 +145,23 @@ header {
   height: 4px;
   background: linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0));
 }
-nav#header-links {
+#header-links {
   float: right;
   margin-right: 16px;
 }
 @media screen and (max-width: 699px) {
-  nav#header-links {
+  #header-links {
     display: none;
   }
 }
-nav#header-links a,
-nav#header-links a:visited {
+#header-links a,
+#header-links a:visited {
   margin: 0 8px;
   color: white;
   font-size: 20px;
   text-decoration: none;
 }
-nav#header-links a:hover {
+#header-links a:hover {
   color: #82b1ff;
 }
 h2 {
@@ -192,6 +192,13 @@ header > .page-wrapper {
   margin: 0 16px;
   width: 48px;
   height: 48px;
+}
+header a,
+header a:visited {
+  color: white;
+}
+header a:hover {
+  color: #82b1ff;
 }
 #header-title {
   float: left;

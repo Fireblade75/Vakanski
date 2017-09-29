@@ -44,7 +44,7 @@ class LocationCard extends SaxComponent {
         }
 
         return _.create('a', { href: `location.html?id=${this.state.id}` },
-            _.create('figure', {class: 'object-card'},
+            _.create('figure', { class: 'object-card' },
                 _.create('div', { class: 'image' },
                     _.create('img', { src: this.state.img }),
                 ),
@@ -67,7 +67,7 @@ class ActivityCard extends SaxComponent {
 
     render() {
         return _.create('a', { href: `activity.html?activity=${this.state.tag}` },
-            _.create('figure', {class: 'action-image'},
+            _.create('figure', { class: 'action-image' },
                 _.create('img', { src: this.state.img, alt: this.state.title }),
                 _.create('figcaption', this.state.title),
             ),

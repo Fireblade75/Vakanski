@@ -1,6 +1,21 @@
+/**
+ * SaxQuery is a library which replaces JQuery for our project
+ * It also supports very simple Html components
+ *
+ * @author Fireblad75
+ * @version 2.0
+ */
+
 'use strict';
 
+/**
+ * This class is used to manipulate on or more DOM elements.
+ */
 class SaxElement {
+    /**
+     * @constructor
+     * @param {*} tag an id/class selector or an element or array of HTMLElements
+     */
     constructor(tag) {
         if (tag === null) {
             this.objects = [];
@@ -34,6 +49,11 @@ class SaxElement {
         }
     }
 
+    /**
+     * Get one of the HTMLElements represented by this SaxElement
+     * @param {number} index the index of the HTMLElements
+     * @return {HTMLElement} the requested HTMLElement
+     */
     getElement(index) {
         if (index >= 0) {
             return this.objects[index];
@@ -41,10 +61,23 @@ class SaxElement {
         return this.objects[this.objects.length - index];
     }
 
+    /**
+     * Get a SaxElement representing one of the HTMLElements of this SaxElement
+     * @param {number} index the index of the HTMLElements
+     * @return {SaxElement} the requested SaxElement
+     */
     get(index) {
         return new SaxElement(this.getElement(index));
     }
 
+    /**
+     * Get or set the value of the represented HTMLElements
+     * If no value is passed, the current value is returned
+     * If this object represents multiple objects the value of
+     * the first one is returned.
+     * @param {*} value the new value to set
+     * @return {*} the current/new value of the first element
+     */
     val(value = null) {
         if (value === null) {
             return this.objects[0].value;
@@ -55,6 +88,14 @@ class SaxElement {
         return value;
     }
 
+    /**
+     * Get or set the source (src) of the represented HTMLElements
+     * If no value is passed, the current value is returned
+     * If this object represents multiple objects the value of
+     * the first one is returned.
+     * @param {*} source the new src value to set
+     * @return {*} the current/new src of the first element
+     */
     src(source = null) {
         if (source === null) {
             return this.objects[0].src;
@@ -65,36 +106,76 @@ class SaxElement {
         return source;
     }
 
+    /**
+     * Get or set a css property for all represented HTMLElements
+     * If no value is passed the css value of the first element is returned
+     * @param {string} propertyName the css propertyname
+     * @param {*} value the new value for this porperty
+     * @return {*} the current value for this property of the first HTMLElement
+     */
     css(propertyName, value) {
+        if (value === null) {
+            return this.objects[0].style[propertyName];
+        }
         for (let i = 0; i < this.objects.length; i++) {
             this.objects[i].style[propertyName] = value;
         }
+        return value;
     }
 
+    /**
+     * Set an event listener for all represented HTMLElements
+     * @param {string} name  the name of the event
+     * @param {function} handler the function to execute
+     */
     onEvent(name, handler) {
         for (let i = 0; i < this.objects.length; i++) {
             this.objects[i].addEventListener(name, handler);
         }
     }
 
+    /**
+     * Set a click event listener for all represented HTMLElements
+     * @param {function} handler the function to execute
+     */
     onClick(handler) {
         this.onEvent('click', handler);
     }
 
+    /**
+     * Set a input event listener for all represented HTMLElements
+     * @param {function} handler the function to execute
+     */
     onInput(handler) {
         this.onEvent('input', handler);
     }
 
+    /**
+     * Set a submit event listener for all represented HTMLElements
+     * @param {function} handler the function to execute
+     */
     onSubmit(handler) {
         this.onEvent('submit', handler);
     }
 
+    /**
+     * Adds or removes the disabled attribute to/from the represented HTMLElements
+     * @param {boolean} bool false if the object should have the disabled attribute
+     */
     setEnabled(bool) {
         for (let i = 0; i < this.objects.length; i++) {
             this.objects[i].disabled = !bool;
         }
     }
 
+    /**
+     * Sets the inner HTML of all represented HTMLElements the a new value or gets
+     * the current HTML of the first represented HTMLElement.
+     * This method also supports directly setting an HTMLElement or VirtualElement
+     * as the new content.
+     * @param {*} html the new inner HTML to set, or an object representing the new HTML
+     * @return {*} the current inner HTML of the first HTMLElement
+     */
     html(html = null) {
         if (html === null) {
             return this.objects[0].innerHTML;
@@ -117,12 +198,18 @@ class SaxElement {
         return html;
     }
 
+    /**
+     * Removes the inner HTML of all represented objects.
+     */
     clear() {
         for (let i = 0; i < this.objects.length; i++) {
             this.objects[i].innerHTML = '';
         }
     }
 
+    /**
+     * Hides the currently represented HTMLElements
+     */
     hide() {
         for (let i = 0; i < this.objects.length; i++) {
             const currentStyle = this.objects[i].style.display;
@@ -133,6 +220,9 @@ class SaxElement {
         }
     }
 
+    /**
+     * Unhides the currently represented HTMLElements
+     */
     show() {
         for (let i = 0; i < this.objects.length; i++) {
             const currentObject = this.objects[i];
@@ -149,6 +239,10 @@ class SaxElement {
         }
     }
 
+    /**
+     * Adds a new css class to all represented HTMLElements
+     * @param {string} name the name of the css class
+     */
     addClass(name) {
         for (let i = 0; i < this.objects.length; i++) {
             const classes = this.getClasses(i);
@@ -159,6 +253,10 @@ class SaxElement {
         }
     }
 
+    /**
+     * Removes a css class from all represented HTMLElements
+     * @param {string} name the name of the css class
+     */
     removeClass(name) {
         for (let i = 0; i < this.objects.length; i++) {
             const classes = this.getClasses(i);
@@ -170,22 +268,48 @@ class SaxElement {
         }
     }
 
+    /**
+     * Removes or adds a css class from/to all represented HTMLElements
+     * @param {string} name the name of the css class
+     */
     toggleClass(name) {
-        if (this.hasClass(name)) {
-            this.removeClass(name);
-        } else {
-            this.addClass(name);
+        for (let i = 0; i < this.objects.length; i++) {
+            const subElemet = this.get(i);
+            if (subElemet.hasClass(name)) {
+                subElemet.removeClass(name);
+            } else {
+                subElemet.addClass(name);
+            }
         }
     }
 
+    /**
+     * Checks if a specific HTMLElement has a certain css class
+     * If the index is omitted the first element is used
+     * @param {string} name the name of the css class
+     * @param {number} index the index of the HTMLElement
+     */
     hasClass(name, index = 0) {
         return this.getClasses(index).includes(name);
     }
 
+    /**
+     * Gets all css classes of a specific HTMLElement
+     * If the index is omitted the first element is used
+     * @param {number} index the index of the HTMLElement
+     * @return {string[]} the css classes of the HTMLElement
+     */
     getClasses(index = 0) {
         return this.objects[index].className.split(' ');
     }
 
+    /**
+     * Sets all css classes of all represented HTMLElements
+     * By specifing an index, only the classes of a specific
+     * HTMLElement are replaced.
+     * @param {string[]} classArr an array of the new css classes
+     * @param {number} index the index of the HTMLElement
+     */
     setClasses(classArr, index = -1) {
         const classes = classArr.join(' ').trim();
         if (index === -1) {
@@ -197,6 +321,11 @@ class SaxElement {
         }
     }
 
+    /**
+     * Gets a SaxObject containing the parent nodes of all represented
+     * HTMLElements in this object
+     * @return {SaxObject} a SaxObject representing all parent nodes
+     */
     parent() {
         const parentNodes = [];
         for (let i = 0; i < this.objects.length; i++) {
@@ -205,6 +334,11 @@ class SaxElement {
         return new SaxElement(parentNodes);
     }
 
+    /**
+     * Gets a SaxObject containing all child nodes of all represented
+     * HTMLElements in this object
+     * @return {SaxObject} a SaxObject representing all child nodes
+     */
     children() {
         const childNodes = [];
         for (let i = 0; i < this.objects.length; i++) {
@@ -215,6 +349,13 @@ class SaxElement {
         return new SaxElement(childNodes);
     }
 
+    /**
+     * Get a SaxObject conataining only HTMLElements that match
+     * the given filter. If no HTMLElements match the filter
+     * the method will return null.
+     * @param {string} filterStr the filter string to use
+     * @return {SaxElement} a SaxElement representing all matching elements
+     */
     filter(filterStr) {
         const queryFilter = new QueryFilter(filterStr);
         const pureObjects = queryFilter.filter(this.objects);
@@ -224,14 +365,29 @@ class SaxElement {
         return null;
     }
 
+    /**
+     * Get the first n HTMLElements represented by this object.
+     * If n is omitted only the first object is returned
+     * @param {Number} n the ammount of objects to return
+     */
     first(n = null) {
         return new SaxElement(_.first(this.objects, n));
     }
 
+    /**
+     * Get the last n HTMLElements represented by this object.
+     * If n is omitted only the last object is returned
+     * @param {Number} n the ammount of objects to return
+     */
     last(n = null) {
         return new SaxElement(_.last(this.objects, n));
     }
 
+    /**
+     * Add a node as the first child of all represented HTMLElements
+     * This method supports HTMLElements, SaxElements and VirtualElements
+     * @param {*} node the node to add
+     */
     prependNode(node) {
         const domNodes = _.toHTMLElements(node);
 
@@ -249,11 +405,22 @@ class SaxElement {
         }
     }
 
+    /**
+     * Add a node as the last child of all represented HTMLElements
+     * This method supports HTMLElements, SaxElements and VirtualElements
+     * @param {*} node the node to add
+     * @deprecated
+     */
     append(elements) {
         this.appendNode(elements);
         console.warn('You are using the deprecated fucntion \'append\', use appendNode instead.');
     }
 
+    /**
+     * Add a node as the last child of all represented HTMLElements
+     * This method supports HTMLElements, SaxElements and VirtualElements
+     * @param {*} node the node to add
+     */
     appendNode(node) {
         const domNodes = _.toHTMLElements(node);
         for (let i = 0; i < this.objects.length; i++) {
@@ -263,6 +430,11 @@ class SaxElement {
         }
     }
 
+    /**
+     * Replace all represented nodes with a new node
+     * This method supports HTMLElements, SaxElements and VirtualElements
+     * @param {*} node the new node
+     */
     replaceNode(newNode) {
         let domNode = _.toHTMLElements(newNode);
         if (domNode.length > 1) {
@@ -280,6 +452,12 @@ class SaxElement {
         }
     }
 
+    /**
+     * Remove a specific child node from all represented nodes
+     * This method supports removing by index and by specific HTMLElements
+     * Also removing by using the string 'first' and 'last' is supported
+     * @param {*} node the new node to remove
+     */
     removeChild(node) {
         let domNodes = null;
         const commands = ['first', 'last'];
@@ -304,6 +482,10 @@ class SaxElement {
         }
     }
 
+    /**
+     * Creates a clone of the current SaxElement by cloning all represented HTMLElements
+     * @param {boolean} deep thru if the HTMLElements should be deep cloned
+     */
     clone(deep = true) {
         const newObjects = [];
         for (let i = 0; i < this.objects.length; i++) {
@@ -313,6 +495,10 @@ class SaxElement {
     }
 }
 
+/**
+ * A class use to represent a virtual DOM.
+ * It provides an easy way to create HTML from JavaScript
+ */
 class VirtualElement {
     constructor(object) {
         this.object = object;
@@ -343,24 +529,49 @@ class VirtualElement {
     }
 }
 
+/**
+ * An abstract class that can be implemented to create components
+ */
 class SaxComponent extends VirtualElement {
     constructor() {
         super(null);
     }
 
+    /**
+     * Converts this SaxComponent to an HTMLElement
+     * @return {HTMLElement} a HTMLElment representing this component
+     */
     toHtml() {
         return this.render().toHtml();
     }
 
+    /**
+     * Renders this SaxComponent to a VirtualElement
+     * This method should be overridden by every component
+     * @return {VirtualElement} a VirtualElement representing this component
+     */
     render() {
         throw new Error('Abstract method render was called.');
     }
 }
 
+/**
+ * Creates a new SaxElement by searching by ID or by css class
+ * This method can also be used to directly create an SaxElement of
+ * a single HTMLElement or from a array of HTMLElements.
+ * @param {string} tag an id or an css class as a css style selector
+ * @return {SaxElement} a SaxElement conaining the found HTMLElements
+ */
 let _ = function select(tag) {
     return new SaxElement(tag);
 };
 
+/**
+ * This function creates a VirtualElement
+ * @param {string} tag the name of the HTML node (the tag)
+ * @param {Object} attributes an object representing the attributes of the node
+ * @param {...*} childNodes VirtualElement or strings that are children of the node
+ */
 _.create = function createElement(tag, attributes, ...childNodes) {
     if (childNodes.length === 1 && Array.isArray(childNodes[0])) {
         childNodes = _.first(childNodes);
@@ -375,14 +586,25 @@ _.create = function createElement(tag, attributes, ...childNodes) {
     return new VirtualElement({ tag, attributes, childNodes });
 };
 
+// An array used to keep track of previous states of hidden elements
 _.displayArr = [];
 
+/**
+ * Execute a certain function after the DOM has loaded
+ * @param {function} func the function to execute
+ */
 _.onReady = function onReady(func) {
     document.addEventListener('DOMContentLoaded', func);
 };
 
-// Send a REST-style post request to an url
-// Data should be a flat key-value java object
+
+/**
+ * Send a GET request to a specific URL
+ * The data should be a flat key-value javascript object
+ * @param {string} url the url for the GET request
+ * @param {Object} data the data to send to the server
+ * @param {function} handler the handler to pass the result to
+ */
 _.get = function get(url, data, handler) {
     const httpRequest = new XMLHttpRequest();
     if (data instanceof Function) {
@@ -409,6 +631,13 @@ _.get = function get(url, data, handler) {
     httpRequest.send();
 };
 
+/**
+ * Send a POST request to a specific URL
+ * The data should be a flat key-value javascript object
+ * @param {string} url the url for the GET request
+ * @param {Object} data the data to send to the server
+ * @param {function} handler the handler to pass the result to
+ */
 _.post = function post(url, data, handler) {
     const httpRequest = new XMLHttpRequest();
     if (data instanceof Function) {
@@ -438,7 +667,11 @@ _.post = function post(url, data, handler) {
     }
 };
 
-// Data should be a flat key-value javascript object
+/**
+ * Converts a flat key-value javascript object to an encoded URI component
+ * @param {Object} data the data to send that needs to be converted
+ * @return {string} the data encoded as an URI component
+ */
 _.toEncodedURL = function toEncodedURL(data) {
     const params = Object.getOwnPropertyNames(data);
     let result = '';
@@ -451,6 +684,12 @@ _.toEncodedURL = function toEncodedURL(data) {
     return result;
 };
 
+/**
+ * Return the first n values of an array
+ * If n is omitted only the first element is returned
+ * @param {[]} arr the array to work with
+ * @param {number} n the amount of values to return
+ */
 _.first = function fisrt(arr, n = null) {
     if (n === null) {
         return arr[0];
@@ -458,6 +697,12 @@ _.first = function fisrt(arr, n = null) {
     return arr.slice(0, n);
 };
 
+/**
+ * Return the last n values of an array
+ * If n is omitted only the last element is returned
+ * @param {[]} arr the array to work with
+ * @param {number} n the amount of values to return
+ */
 _.last = function last(arr, n = null) {
     if (n === null) {
         return arr.slice(-1)[0];
@@ -465,6 +710,13 @@ _.last = function last(arr, n = null) {
     return arr.slice(-n);
 };
 
+/**
+ * Converts a string to lower case with the first character and
+ * ech character after a certain separator capitalized
+ * @param {string} str the string to convert
+ * @param {string} separator the separator to use (by default a space)
+ * @return {string} the converted string
+ */
 _.toStartCase = function toStartCase(str, separator) {
     if (separator === undefined) {
         separator = ' ';
@@ -479,6 +731,13 @@ _.toStartCase = function toStartCase(str, separator) {
     }, undefined);
 };
 
+/**
+ * Converts a single element or array of elements of the types
+ * HTMLElement, VirtualElements and SaxElements to an array of
+ * HTMLElements. This makes it easier to work with these elements.
+ * @param {...*} nodes the nodes to convert
+ * @return {HTMLElement[]} the array of HTMLElements
+ */
 _.toHTMLElements = function toHTMLElements(...nodes) {
     if (nodes.length === 1 && nodes[0] instanceof Array) {
         nodes = _.first(nodes);
@@ -499,12 +758,28 @@ _.toHTMLElements = function toHTMLElements(...nodes) {
     return result;
 };
 
+/**
+ * Formats a number as a currency string
+ * If no paramaters for the sign and decimal mark are passed the value is
+ * formated as US dollars.
+ * @param {number} value the value of the currency to convert
+ * @param {string} currencySign the currency sign to use (default = $)
+ * @param {string} decimalMark the decimal mark to use (default = .)
+ * @return {string} the formatted string
+ */
 _.formatCurrency = function formatCurrency(value, currencySign = '$', decimalMark = '.') {
     const resultValue = value.toFixed(2).replace('.', decimalMark);
     return `${currencySign} ${resultValue}`;
 };
 
+/**
+ * A class used to filter the content of an array of HTMLElements
+ */
 class QueryFilter {
+    /**
+     * Creates a QueryFilter by passing an array of filters to use
+     * @param {...string} filters the filters to use
+     */
     constructor(...filters) {
         if (filters.length === 1 && filters[0] instanceof Array) {
             filters = _.first(filters);
@@ -536,6 +811,11 @@ class QueryFilter {
         }
     }
 
+    /**
+     * Returns a list of HTMLElments that matched this filter
+     * @param {...HTMLElement} elements the elements to filter
+     * @return {HTMLElement[]} the elements that matched the filters
+     */
     filter(...elements) {
         const result = [];
         if (elements.length === 1 && elements[0] instanceof Array) {

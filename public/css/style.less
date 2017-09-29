@@ -32,7 +32,7 @@ header {
     background: linear-gradient(rgba(0, 0, 0, .28), rgba(0, 0, 0, 0));
 }
 
-nav#header-links {
+#header-links {
     float: right;
     margin-right: 16px;
     @media screen and (max-width: 699px) {
@@ -84,6 +84,15 @@ header>.page-wrapper {
     margin: 0 16px;
     width: 48px;
     height: 48px;
+}
+
+header a,
+header a:visited {
+    color: white;
+}
+
+header a:hover {
+    color: @colorPrimaryLight;
 }
 
 #header-title {
