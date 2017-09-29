@@ -43,14 +43,16 @@ class LocationCard extends SaxComponent {
             traitElements.push(_.create('li', this.state.traits[i]));
         }
 
-        return _.create('a', { class: 'object-card', href: `location.html?id=${this.state.id}` },
-            _.create('div', { class: 'image' },
-                _.create('img', { src: this.state.img }),
-            ),
-            _.create('div', { class: 'description' },
-                _.create('h3', (this.state.name)),
-                _.create('ul', { class: 'check' },
-                    traitElements,
+        return _.create('a', { href: `location.html?id=${this.state.id}` },
+            _.create('figure', {class: 'object-card'},
+                _.create('div', { class: 'image' },
+                    _.create('img', { src: this.state.img }),
+                ),
+                _.create('figcaption', { class: 'description' },
+                    _.create('h3', (this.state.name)),
+                    _.create('ul', { class: 'check' },
+                        traitElements,
+                    ),
                 ),
             ),
         );
@@ -64,9 +66,11 @@ class ActivityCard extends SaxComponent {
     }
 
     render() {
-        return _.create('a', { class: 'actionImage', href: `activity.html?activity=${this.state.tag}` },
-            _.create('img', { src: this.state.img, alt: this.state.title }),
-            _.create('span', this.state.title),
+        return _.create('a', { href: `activity.html?activity=${this.state.tag}` },
+            _.create('figure', {class: 'action-image'},
+                _.create('img', { src: this.state.img, alt: this.state.title }),
+                _.create('figcaption', this.state.title),
+            ),
         );
     }
 }

@@ -1,7 +1,6 @@
 @import "vars";
 @import "footer";
 @import "carrousel";
-
 html {
     height: 100%;
 }
@@ -176,7 +175,7 @@ button:hover {
     background-color: @colorPrimaryLight;
 }
 
-.actionImage {
+.action-image {
     position: relative;
     height: 200px;
     width: 200px;
@@ -184,30 +183,33 @@ button:hover {
     border: 2px solid @colorPrimary;
     border-radius: 16px;
     overflow: hidden;
-    img {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-    }
-    span {
-        visibility: hidden;
-        display: inline-flex;
-        position: absolute;
-        background-color: @colorPrimaryTransparant;
-        border-radius: 16px;
-        font-size: 20px;
-        color: white;
-        width: 84%;
-        height: 84%;
-        margin: 8%;
-        justify-content: center;
-        align-items: center;
-    }
 }
 
-.actionImage:hover>span {
+.action-image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.action-image figcaption {
+    visibility: hidden;
+    display: inline-flex;
+    position: absolute;
+    background-color: @colorPrimaryTransparant;
+    border-radius: 16px;
+    font-size: 20px;
+    color: white;
+    width: 84%;
+    height: 84%;
+    margin: 8%;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-image:hover figcaption {
     visibility: visible;
 }
+
 
 @media (hover: none) {
     .actionImage>span {
@@ -421,7 +423,6 @@ a.row {
     margin: 16px;
     height: 200px;
     color: black;
-    
     .image,
     .description {
         max-width: 50%;
@@ -542,17 +543,16 @@ a.row {
     }
 }
 
-
 #search-bar {
     margin: 48px auto;
     max-width: 840px;
-    @media screen and (max-width:903px) {
+    @media screen and (max-width: 903px) {
         max-width: 404px;
         margin: 16px auto;
     }
 }
 
-#search-bar > form {
+#search-bar>form {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -567,7 +567,7 @@ a.row {
     margin: 4px;
 }
 
-textarea{
+textarea {
     height: 64px;
     border-radius: 16px;
     border: 2px solid @colorPrimary;
