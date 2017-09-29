@@ -17,7 +17,7 @@ _.onReady(function onReady() {
                 _.create('p', response.description),
             ),
         );
-        _('#category-section').append(category);
+        _('#category-section').appendNode(category);
         for (let i = 0; i < response.featuredLocations.length; i++) {
             addFeaturedLocation(response.featuredLocations[i]);
         }
@@ -27,6 +27,6 @@ _.onReady(function onReady() {
 function addFeaturedLocation(index) {
     DataManager.getLocation(index, function handle(response) {
         const locationCard = new LocationCard(response);
-        _('#location-row').append(locationCard);
+        _('#location-row').appendNode(locationCard);
     });
 }

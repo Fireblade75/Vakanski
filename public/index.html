@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <link rel="manifest" href="manifest.json">
     <title>Vakanski</title>
     <script src="js/lib/saxquery.js"></script>
     <script src="js/lib/data-manager.js"></script>
@@ -48,32 +49,33 @@
             <div class="foto" style="background-image: url('../img/carrousel/italie_1.png');"></div>
             <div class="foto" style="background-image: url('../img/carrousel/alpen_1.png');"></div>
         </div>
-        <form>
+        <form method="GET" action="locations.html">
             <span class="select">        
-                    <select>
-                        <option>Land</option>
+                    <select name="country">
+                        <option value="">Land</option>
                         <option>Oostenrijk</option>
                         <option>Frankrijk</option>
                         <option>Zwitserland</option>
                     </select>
                 </span>
             <span class="select">
-                    <select>
-                        <option>Prijs</option>
+                    <select name="price">
+                        <option value="">Prijs</option>
                         <option value="400">&lt; &euro; 400,-</option>
+                        <option value="500">&lt; &euro; 500,-</option>
                         <option value="600">&lt; &euro; 600,-</option>
+                        <option value="700">&lt; &euro; 700,-</option>
                         <option value="800">&lt; &euro; 800,-</option>
+                        <option value="900">&lt; &euro; 900,-</option>
                         <option value="1000">&lt; &euro; 1000,-</option>
-                        <option value="1400">&lt; &euro; 1400,-</option>
-                        <option value="2000">&lt; &euro; 2000,-</option>
                     </select>
                 </span>
             <span class="select">
-                    <select>
-                        <option>Dagen</option>
-                        <option>1 tot 6</option>
-                        <option>7 tot 13</option>
-                        <option>14 tot 19</option>
+                    <select name="days">
+                        <option value="">Dagen</option>
+                        <option value="1-6">1 tot 6</option>
+                        <option value="7-13">7 tot 13</option>
+                        <option value="14-19">14 tot 19</option>
                     </select>
                 </span>
             <button>Zoeken</button>

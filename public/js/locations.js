@@ -2,12 +2,33 @@
 let locationRow;
 
 _.onReady(function onReady() {
-    DataManager.getAllLocations(function getAllLocations(locations) {
+    DataManager.getAllLocations(function searchLocations(locations) {
+        const filter = {};
+        const country = DataManager.getParameter('country');
+        if (country !== undefined && country !== '') {
+            _('#country-select').val(country);
+            filter.country = country;
+        }
+
+        const price = DataManager.getParameter('price');
+        if (price !== undefined && price !== '') {
+            _('#price-select').val(price);
+            filter.price = price;
+        }
+
+        const days = DataManager.getParameter('days');
+        if (days !== undefined && days !== '') {
+            _('#days-select').val(days);
+            const [minDays, maxDays] = days.split('-');
+            filter.days = { min: minDays, max: maxDays };
+        }
+
         locationRow = new LocationRow(locations);
+        locationRow.addFilter(filter);
         redraw();
     });
 
-    _('#search-form').onSubmit(function onSubmit(event) {
+    _('#search-form').onSubmit(function searchLocations(event) {
         event.preventDefault();
         const filter = {};
 

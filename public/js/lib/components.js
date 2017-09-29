@@ -6,7 +6,6 @@ class LocationCard extends SaxComponent {
     }
 
     filter(filterObj) {
-        console.log(filterObj);
         if (filterObj.hasOwnProperty('country')) {
             if (filterObj.country.toLowerCase() !== this.state.country.toLowerCase()) {
                 return false;
@@ -99,5 +98,33 @@ class LocationRow extends SaxComponent {
         }
 
         return _.create('div', { id: 'location-row', class: 'row' }, renderChildren);
+    }
+}
+
+class ActivityRow extends SaxComponent {
+    constructor(props) {
+        super();
+        this.state = props;
+    }
+
+    render() {
+        return _.create('div', { class: 'row' },
+            _.create('div', { class: 'image-wrapper' },
+                _.create('div', { class: 'actionImage' },
+                    _.create('a', { href: `activity.html?activity=${this.state.tag}` },
+                        _.create('img', { src: this.state.img, alt: this.state.title }),
+                    ),
+                ),
+
+            ),
+            _.create('div', { class: 'description' },
+                _.create('h2',
+                    _.create('a', { href: `activity.html?activity=${this.state.tag}` },
+                        this.state.title,
+                    ),
+                ),
+                _.create('p', this.state.description),
+            ),
+        );
     }
 }
