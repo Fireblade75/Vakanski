@@ -544,19 +544,6 @@ section:not(:last-of-type) {
     overflow: hidden;
 }
 
-.detail-container .image {
-    flex: 1 1 auto;
-    display: inline-flex;
-    justify-content: center;
-    overflow: hidden;
-    @media screen and (min-width: 600px) {
-        min-width: 250px;
-    }
-    @media screen and (max-width: 599px) {
-        max-height: 300px;
-    }
-}
-
 .detail-container .description {
     position: relative;
     display: flex;
@@ -583,7 +570,10 @@ section:not(:last-of-type) {
 }
 
 @media screen and (max-width: 374px) {
-    flex-direction: column;
+    .detail-container .description {
+        min-width: initial;
+    }
+
     .detail-container .description div:last-of-type {
         margin-bottom: 64px;
     }
@@ -592,6 +582,10 @@ section:not(:last-of-type) {
 @media screen and (max-width: 599px) {
     .detail-container {
         flex-wrap: wrap;
+    }
+
+    .detail-container .image {
+        max-height: 300px;
     }
 }
 
@@ -608,6 +602,10 @@ section:not(:last-of-type) {
 @media screen and (min-width: 600px) {
     .detail-container {
         height: 400px;
+    }
+
+    .detail-container .image {
+        min-width: 250px;
     }
 }
 
