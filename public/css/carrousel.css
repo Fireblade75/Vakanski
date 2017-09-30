@@ -1,10 +1,10 @@
-#carrousel {
+.carrousel {
   position: relative;
   border-bottom: 2px solid #0d47a1;
   text-align: center;
   height: 400px;
 }
-#carrousel > .background {
+.carrousel > .background {
   position: absolute;
   z-index: -1;
   top: 0;
@@ -13,7 +13,7 @@
   width: 100%;
   overflow: hidden;
 }
-#carrousel .foto {
+.carrousel .foto {
   width: 1000px;
   height: 400px;
   max-width: 100%;
@@ -24,23 +24,23 @@
   transition: width 0.8s;
 }
 @media screen and (max-width: 417px) {
-  #carrousel .foto {
+  .carrousel .foto {
     transition: width 0.4s;
   }
 }
-#carrousel .foto:first-child {
+.carrousel .foto:first-child {
   width: 0;
 }
-#carrousel .foto:nth-child(n+7) {
+.carrousel .foto:nth-child(n+7) {
   width: 0;
 }
-#carrousel > form {
+.carrousel > form {
   position: absolute;
   width: 100%;
   bottom: 24px;
   text-align: center;
   line-height: 40px;
 }
-#carrousel > form span.select:after {
+.carrousel > form span.select:after {
   margin-top: -6px;
 }

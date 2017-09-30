@@ -3,7 +3,7 @@ _.onReady(function onReady() {
     DataManager.getLocation(DataManager.getParameter('id'), function handle(response) {
         _('#location-title').html(response.name);
         _('#location-span').html(response.location);
-        _('#location-image').src(response.img);
+        _('#location-image').src(response.img, response.name);
 
         const traitsUl = _('#location-traits');
         traitsUl.clear();

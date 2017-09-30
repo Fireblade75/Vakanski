@@ -85,15 +85,20 @@ class SaxElement {
      * If no value is passed, the current value is returned
      * If this object represents multiple objects the value of
      * the first one is returned.
-     * @param {*} source the new src value to set
-     * @return {*} the current/new src of the first element
+     * Optionally the alt tag can also be set at the same time.
+     * @param {string} source the new src value to set
+     * @param {string} alt the new alt tag for the image
+     * @return {string} the current/new src of the first element
      */
-    src(source = null) {
+    src(source = null, alt) {
         if (source === null) {
             return this.objects[0].src;
         }
         for (let i = 0; i < this.objects.length; i++) {
             this.objects[i].src = source;
+            if (alt !== undefined) {
+                this.objects[i].alt = alt;
+            }
         }
         return source;
     }
