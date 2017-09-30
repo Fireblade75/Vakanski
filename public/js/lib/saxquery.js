@@ -410,7 +410,7 @@ class SaxElement {
      */
     append(elements) {
         this.appendNode(elements);
-        console.warn('You are using the deprecated fucntion \'append\', use appendNode instead.');
+        console.warn('You are using the deprecated method \'append\', use appendNode instead.');
     }
 
     /**
