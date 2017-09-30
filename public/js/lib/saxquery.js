@@ -1,11 +1,3 @@
-/**
- * SaxQuery is a library which replaces JQuery for our project
- * It also supports very simple Html components
- *
- * @author Fireblad75
- * @version 2.0
- */
-
 'use strict';
 
 /**

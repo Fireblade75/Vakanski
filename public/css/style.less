@@ -1,6 +1,11 @@
 @import "vars";
 @import "footer";
 @import "carrousel";
+
+/*=============================================
+=         Common HTML Element styles          =
+=============================================*/
+
 html {
     height: 100%;
 }
@@ -14,40 +19,10 @@ body {
     min-height: 100%;
 }
 
-header {
-    width: 100%;
-    height: 48px;
-    top: 0px;
-    background-color: @colorPrimary;
-    color: white;
-    padding: 8px 0;
-    line-height: 48px;
-}
-
-#header-shadow {
-    position: absolute;
-    top: 64px;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(rgba(0, 0, 0, .28), rgba(0, 0, 0, 0));
-}
-
-#header-links {
-    float: right;
-    margin-right: 16px;
-    @media screen and (max-width: 699px) {
-        display: none;
-    }
-    a,
-    a:visited {
-        margin: 0 8px;
-        color: white;
-        font-size: 20px;
-        text-decoration: none;
-    }
-    a:hover {
-        color: @colorPrimaryLight;
-    }
+.page-wrapper {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h2 {
@@ -69,48 +44,200 @@ a:hover {
     color: @colorPrimaryLight;
 }
 
-.page-wrapper {
-    max-width: 1024px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-header>.page-wrapper {
-    height: 48px;
-}
-
-#header-icon {
-    float: left;
-    margin: 0 16px;
-    width: 48px;
-    height: 48px;
-}
-
-header a,
-header a:visited {
+a.button,
+a:visited.button {
+    display: inline-block;
+    background-color: @colorPrimary;
+    text-align: center;
+    border-radius: 16px;
+    width: 128px;
+    height: 32px;
+    line-height: 32px;
+    margin: 8px;
     color: white;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-header a:hover {
+/*------------  A button styles  ------------*/
+
+a.button:hover {
     color: @colorPrimaryLight;
 }
 
-#header-title {
-    float: left;
-    font-size: 32px;
+a.button.facebook,
+a.button.facebook:visited {
+    background-color: #4267b2;
+}
+
+a.button.twitter,
+a.button.twitter:visited {
+    background-color: #1da1f2;
+}
+
+a.button.youtube,
+a.button.youtube:visited {
+    background-color: #ff0000;
+}
+
+a.button.facebook:hover,
+a.button.twitter:hover,
+a.button.youtube:hover {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/*---------  Checkmark list styles  ---------*/
+
+ul {
+    display: inline-block;
+    text-align: left;
+}
+
+ul.check {
+    list-style-image: url('../img/check-icon.svg');
+}
+
+ul.fat-check {
+    list-style-image: url('../img/check-fat-icon.svg');
+    font-size: 1.1em;
+}
+
+ul.fat-check li {
+    margin-bottom: 0.4em;
+    padding-left: 8px;
+}
+
+ul.no-decoration {
+    list-style: none;
+    padding-left: 0;
+}
+
+/*=============================================
+=                Header styles                =
+=============================================*/
+
+header {
+    width: 100%;
+    height: 48px;
+    top: 0;
+    background-color: @colorPrimary;
+    color: white;
+    padding: 8px 0;
     line-height: 48px;
 }
 
-#hamburger-icon {
+header::after {
+    content: '';
+    position: absolute;
+    top: 64px;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(rgba(0, 0, 0, .28), rgba(0, 0, 0, 0));
+}
+
+header .page-wrapper {
+    height: 48px;
+}
+
+header .icon {
+    width: 48px;
+    height: 48px;
+    filter: brightness(0) invert(1);
+}
+
+header .icon:hover {
+    filter: none;
+}
+
+.title-container h1,
+.title-container .icon {
+    float: left;
+    margin: 0 0 0 16px;
+}
+
+.title-container h1,
+.title-container:visited h1 {
+    font-size: 32px;
+    color: white;
+    font-weight: normal;
+}
+
+.title-container:hover h1,
+.title-container:hover .icon {
+    color: @colorPrimaryLight;
+    filter: none;
+}
+
+.icon.hamburger {
     float: right;
     cursor: pointer;
     margin: 0 16px;
-    width: 48px;
-    height: 48px;
     @media screen and (min-width: 700px) {
         display: none;
     }
 }
+
+/*-------  Navigation element styles  -------*/
+
+nav a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+@media screen and (min-width: 700px) {
+    nav {
+        float: right;
+        margin-right: 16px;
+    }
+    nav a,
+    nav a:visited {
+        margin: 0 8px;
+        color: white;
+    }
+    nav a:hover {
+        color: @colorPrimaryLight;
+    }
+}
+
+@media screen and (max-width: 699px) {
+    nav {
+        position: absolute;
+        top: 64px;
+        width: 100%;
+        border-bottom: 1px solid @colorPrimary;
+        background-color: @colorPrimaryLight;
+        z-index: 10;
+    }
+
+    nav a,
+    nav a:visited,
+    nav a:hover {
+        display: block;
+        text-align: center;
+        width: 100%;
+        height: 0;
+        line-height: 48px;
+        text-decoration: none;
+        font-size: 18px;
+        overflow: hidden;
+        color: @colorPrimary;
+        font-family: @fontPrimary;
+        transition: height 0.25s;
+        border-bottom: 0 solid @colorPrimary;
+    } 
+
+    nav.active>a {
+        height: 48px;
+    }
+    
+    nav.active>a:not(:last-child) {
+        border-bottom: 1px solid @colorPrimary;
+    }
+}
+
+/*=============================================
+=             Form element styles             =
+=============================================*/
 
 input,
 select {
@@ -127,10 +254,6 @@ select {
     background-color: white;
 }
 
-option {
-    background-color: white;
-}
-
 input:hover,
 select:hover {
     background-color: @colorPrimaryLight;
@@ -144,6 +267,10 @@ select {
     width: 132px;
     padding-left: 10px;
     font-family: @fontPrimary;
+}
+
+option {
+    background-color: white;
 }
 
 span.select {
@@ -184,6 +311,12 @@ button:hover {
     background-color: @colorPrimaryLight;
 }
 
+/*=============================================
+=              Component styles               =
+=============================================*/
+
+/*----------  Action image styles  ----------*/
+
 .action-image {
     position: relative;
     height: 200px;
@@ -219,11 +352,10 @@ button:hover {
     visibility: visible;
 }
 
-
 @media (hover: none) {
     .actionImage>span {
         visibility: visible;
-        bottom: 0px;
+        bottom: 0;
         width: 100%;
         height: 25%;
         margin: 0;
@@ -231,133 +363,90 @@ button:hover {
     }
 }
 
-a.button,
-a:visited.button {
-    display: inline-block;
-    background-color: @colorPrimary;
-    text-align: center;
+/*----------  Action image styles  ----------*/
+
+.object-card,
+.object-card:hover,
+.object-card:visited {
+    border: 2px solid @colorPrimary;
+    overflow: hidden;
     border-radius: 16px;
-    width: 128px;
-    height: 32px;
-    line-height: 32px;
-    margin: 8px;
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
+    max-width: 400px;
+    font-size: 0;
+    margin: 16px;
+    height: 200px;
+    color: black;
 }
 
-a.button:hover {
-    color: @colorPrimaryLight;
-}
-
-a.button.facebook,
-a.button.facebook:visited {
-    background-color: #4267b2;
-}
-
-a.button.twitter,
-a.button.twitter:visited {
-    background-color: #1da1f2;
-}
-
-a.button.youtube,
-a.button.youtube:visited {
-    background-color: #ff0000;
-}
-
-a.button.facebook:hover,
-a.button.twitter:hover,
-a.button.youtube:hover {
-    color: rgba(255, 255, 255, 0.75);
-}
-
-ul {
+.object-card .image,
+.object-card .description {
+    max-width: 50%;
+    height: 100%;
     display: inline-block;
-    text-align: left;
+    vertical-align: middle;
 }
 
-ul.check {
-    list-style-image: url('../img/check-icon.svg');
+.object-card .image {
+    display: inline-flex;
+    justify-content: center;
+    overflow: hidden;
 }
 
-ul.fat-check {
-    list-style-image: url('../img/check-fat-icon.svg');
-    font-size: 1.1em;
+.image img {
+    height: 100%;
 }
 
-ul.fat-check li {
-    margin-bottom: 0.4em;
-    padding-left: 8px;
+.object-card .description {
+    font-size: initial;
+    box-sizing: border-box;
+    padding: 10px;
 }
 
-ul.no-decoration {
-    list-style: none;
-    padding-left: 0;
+.object-card .description h3 {
+    margin: 8px 0;
 }
 
-.contact-main {
+.object-card .description .ul {
+    height: 140px;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+}
+
+.description ul.check,
+.description ul.fat-check {
+    padding-left: 30px;
+}
+
+/*------------  Search bar styles -----------*/
+
+.search-bar {
+    margin: 48px auto;
+    max-width: 840px;
+    @media screen and (max-width: 903px) {
+        max-width: 404px;
+        margin: 16px auto;
+    }
+}
+
+.search-bar form {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    text-align: left;
-    margin: 50px;
-    img {
-        position: left;
-        height: 180px;
-        width: 180px;
-        margin: 16px, 16px;
-        border: 2px solid @colorPrimary;
-        border-radius: 16px;
-        overflow: hidden;
-        margin: 50px;
-    }
-    .contact-intro {
-        align-items: center;
-        margin: 50px;
-        .contact-intro-header {
-            font-size: 32px;
-            color: @colorPrimary;
-            margin-top: 0px;
-        }
-        .contact-intro-text {
-            width: 350px;
-        }
-        button {
-            margin-top: 10px;
-        }
-    }
+    padding: 4px 16px;
+    background-color: #f2f2f2;
+    border: 2px solid @colorPrimary;
+    border-radius: 16px;
 }
 
-#dropdown-links {
-    position: absolute;
-    top: 64px;
-    width: 100%;
-    border-bottom: 1px solid @colorPrimary;
-    background-color: @colorPrimaryLight;
-    z-index: 10;
-    a {
-        display: block;
-        text-align: center;
-        width: 100%;
-        height: 0px;
-        line-height: 48px;
-        text-decoration: none;
-        font-size: 18px;
-        overflow: hidden;
-        color: @colorPrimary;
-        font-family: @fontPrimary;
-        transition: height 0.25s;
-        border-bottom: 0px solid @colorPrimary;
-    }
+.search-bar span,
+.search-bar button {
+    margin: 4px;
 }
 
-#dropdown-links.active>a {
-    height: 48px;
-}
-
-#dropdown-links.active>a:not(:last-child) {
-    border-bottom: 1px solid @colorPrimary;
-}
+/*=============================================
+=               Section styles                =
+=============================================*/
 
 section {
     text-align: center;
@@ -386,89 +475,45 @@ section:not(:last-of-type) {
     text-align: left;
 }
 
-a.row {
-    cursor: pointer;
-}
+/*--------------  Aside Section -------------*/
 
-.split-text-section {
+.aside-section {
     padding: 48px 16px;
 }
 
-.split-text-section>.row {
-    overflow: hidden;
-    div.image-wrapper {
-        float: left;
-        width: 50%;
-        @media screen and (max-width: 599px) {
-            display: none;
-        }
-        .actionImage {
-            margin-left: auto;
-            margin-right: 92px;
-        }
+.aside-section .row {
+    display: flex;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+}
+
+.aside-section aside {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.aside-section article {
+    flex: 2 1 auto;
+    margin: 0 16px;
+}
+
+@media screen and (max-width: 599px) {
+    .aside-section aside,
+    .aside-section article {
+        width: 100%;
     }
-    .description {
-        @media screen and (min-width: 600px) {
-            float: right;
-            width: 50%;
-        }
-        h2 {
-            @media screen and (max-width: 599px) {
-                text-align: center;
-            }
-            margin-bottom: 0;
-        }
+
+    .aside-section article {
+        text-align: center;
     }
 }
 
-.object-card,
-.object-card:hover,
-.object-card:visited {
-    border: 2px solid @colorPrimary;
-    overflow: hidden;
-    border-radius: 16px;
-    max-width: 400px;
-    font-size: 0;
-    margin: 16px;
-    height: 200px;
-    color: black;
-    .image,
-    .description {
-        max-width: 50%;
-        height: 100%;
-        display: inline-block;
-        vertical-align: middle;
-    }
-    .image {
-        display: inline-flex;
-        justify-content: center;
-        overflow: hidden;
-        img {
-            height: 100%;
-        }
-    }
-    .description {
-        font-size: initial;
-        box-sizing: border-box;
-        padding: 10px;
-        h3,
-        ul {
-            margin: 8px 0;
-        }
-        ul {
-            height: 140px;
-            overflow: hidden;
-            display: block;
-        }
-        ul.check,
-        ul.fat-check {
-            padding-left: 30px;
-        }
-        ul {
-            margin: 0;
-        }
-    }
-}
+/*=============================================
+=             Location page styles            =
+=============================================*/
 
 .item-detail-wrapper {
     display: flex;
@@ -552,28 +597,41 @@ a.row {
     }
 }
 
-#search-bar {
-    margin: 48px auto;
-    max-width: 840px;
-    @media screen and (max-width: 903px) {
-        max-width: 404px;
-        margin: 16px auto;
-    }
-}
+/*=============================================
+=               Contact style                 =
+=============================================*/
 
-#search-bar>form {
+.contact-main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 4px 16px;
-    background-color: #f2f2f2;
-    border: 2px solid @colorPrimary;
-    border-radius: 16px;
-}
-
-#search-bar span,
-#search-bar button {
-    margin: 4px;
+    text-align: left;
+    margin: 50px;
+    img {
+        position: left;
+        height: 180px;
+        width: 180px;
+        margin: 16px, 16px;
+        border: 2px solid @colorPrimary;
+        border-radius: 16px;
+        overflow: hidden;
+        margin: 50px;
+    }
+    .contact-intro {
+        align-items: center;
+        margin: 50px;
+        .contact-intro-header {
+            font-size: 32px;
+            color: @colorPrimary;
+            margin-top: 0;
+        }
+        .contact-intro-text {
+            width: 350px;
+        }
+        button {
+            margin-top: 10px;
+        }
+    }
 }
 
 textarea {

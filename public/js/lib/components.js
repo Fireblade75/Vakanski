@@ -113,15 +113,14 @@ class ActivityRow extends SaxComponent {
 
     render() {
         return _.create('div', { class: 'row' },
-            _.create('div', { class: 'image-wrapper' },
-                _.create('div', { class: 'actionImage' },
+            _.create('aside',
+                _.create('div', { class: 'action-image' },
                     _.create('a', { href: `activity.html?activity=${this.state.tag}` },
                         _.create('img', { src: this.state.img, alt: this.state.title }),
                     ),
                 ),
-
             ),
-            _.create('div', { class: 'description' },
+            _.create('article', { class: 'description' },
                 _.create('h2',
                     _.create('a', { href: `activity.html?activity=${this.state.tag}` },
                         this.state.title,

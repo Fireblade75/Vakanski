@@ -1,3 +1,6 @@
+/*=============================================
+=                Footer styles                =
+=============================================*/
 footer {
   height: 84px;
   background-color: #f2f2f2;
@@ -119,6 +122,9 @@ section:last-of-type {
 #carrousel > form span.select:after {
   margin-top: -6px;
 }
+/*=============================================
+=         Common HTML Element styles          =
+=============================================*/
 html {
   height: 100%;
 }
@@ -129,40 +135,10 @@ body {
   padding: 0;
   min-height: 100%;
 }
-header {
-  width: 100%;
-  height: 48px;
-  top: 0px;
-  background-color: #0d47a1;
-  color: white;
-  padding: 8px 0;
-  line-height: 48px;
-}
-#header-shadow {
-  position: absolute;
-  top: 64px;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0));
-}
-#header-links {
-  float: right;
-  margin-right: 16px;
-}
-@media screen and (max-width: 699px) {
-  #header-links {
-    display: none;
-  }
-}
-#header-links a,
-#header-links a:visited {
-  margin: 0 8px;
-  color: white;
-  font-size: 20px;
-  text-decoration: none;
-}
-#header-links a:hover {
-  color: #82b1ff;
+.page-wrapper {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
 }
 h2 {
   font-size: 32px;
@@ -179,44 +155,172 @@ a:visited {
 a:hover {
   color: #82b1ff;
 }
-.page-wrapper {
-  max-width: 1024px;
-  margin-left: auto;
-  margin-right: auto;
-}
-header > .page-wrapper {
-  height: 48px;
-}
-#header-icon {
-  float: left;
-  margin: 0 16px;
-  width: 48px;
-  height: 48px;
-}
-header a,
-header a:visited {
+a.button,
+a:visited.button {
+  display: inline-block;
+  background-color: #0d47a1;
+  text-align: center;
+  border-radius: 16px;
+  width: 128px;
+  height: 32px;
+  line-height: 32px;
+  margin: 8px;
   color: white;
+  text-decoration: none;
+  cursor: pointer;
 }
-header a:hover {
+/*------------  A button styles  ------------*/
+a.button:hover {
   color: #82b1ff;
 }
-#header-title {
-  float: left;
-  font-size: 32px;
+a.button.facebook,
+a.button.facebook:visited {
+  background-color: #4267b2;
+}
+a.button.twitter,
+a.button.twitter:visited {
+  background-color: #1da1f2;
+}
+a.button.youtube,
+a.button.youtube:visited {
+  background-color: #ff0000;
+}
+a.button.facebook:hover,
+a.button.twitter:hover,
+a.button.youtube:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+/*---------  Checkmark list styles  ---------*/
+ul {
+  display: inline-block;
+  text-align: left;
+}
+ul.check {
+  list-style-image: url('../img/check-icon.svg');
+}
+ul.fat-check {
+  list-style-image: url('../img/check-fat-icon.svg');
+  font-size: 1.1em;
+}
+ul.fat-check li {
+  margin-bottom: 0.4em;
+  padding-left: 8px;
+}
+ul.no-decoration {
+  list-style: none;
+  padding-left: 0;
+}
+/*=============================================
+=                Header styles                =
+=============================================*/
+header {
+  width: 100%;
+  height: 48px;
+  top: 0;
+  background-color: #0d47a1;
+  color: white;
+  padding: 8px 0;
   line-height: 48px;
 }
-#hamburger-icon {
+header::after {
+  content: '';
+  position: absolute;
+  top: 64px;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0));
+}
+header .page-wrapper {
+  height: 48px;
+}
+header .icon {
+  width: 48px;
+  height: 48px;
+  filter: brightness(0) invert(1);
+}
+header .icon:hover {
+  filter: none;
+}
+.title-container h1,
+.title-container .icon {
+  float: left;
+  margin: 0 0 0 16px;
+}
+.title-container h1,
+.title-container:visited h1 {
+  font-size: 32px;
+  color: white;
+  font-weight: normal;
+}
+.title-container:hover h1,
+.title-container:hover .icon {
+  color: #82b1ff;
+  filter: none;
+}
+.icon.hamburger {
   float: right;
   cursor: pointer;
   margin: 0 16px;
-  width: 48px;
-  height: 48px;
 }
 @media screen and (min-width: 700px) {
-  #hamburger-icon {
+  .icon.hamburger {
     display: none;
   }
 }
+/*-------  Navigation element styles  -------*/
+nav a {
+  text-decoration: none;
+  font-size: 20px;
+}
+@media screen and (min-width: 700px) {
+  nav {
+    float: right;
+    margin-right: 16px;
+  }
+  nav a,
+  nav a:visited {
+    margin: 0 8px;
+    color: white;
+  }
+  nav a:hover {
+    color: #82b1ff;
+  }
+}
+@media screen and (max-width: 699px) {
+  nav {
+    position: absolute;
+    top: 64px;
+    width: 100%;
+    border-bottom: 1px solid #0d47a1;
+    background-color: #82b1ff;
+    z-index: 10;
+  }
+  nav a,
+  nav a:visited,
+  nav a:hover {
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 0;
+    line-height: 48px;
+    text-decoration: none;
+    font-size: 18px;
+    overflow: hidden;
+    color: #0d47a1;
+    font-family: 'Sanchez';
+    transition: height 0.25s;
+    border-bottom: 0 solid #0d47a1;
+  }
+  nav.active > a {
+    height: 48px;
+  }
+  nav.active > a:not(:last-child) {
+    border-bottom: 1px solid #0d47a1;
+  }
+}
+/*=============================================
+=             Form element styles             =
+=============================================*/
 input,
 select {
   height: 28px;
@@ -231,9 +335,6 @@ select {
   color: #0d47a1;
   background-color: white;
 }
-option {
-  background-color: white;
-}
 input:hover,
 select:hover {
   background-color: #82b1ff;
@@ -246,6 +347,9 @@ select {
   width: 132px;
   padding-left: 10px;
   font-family: 'Sanchez';
+}
+option {
+  background-color: white;
 }
 span.select {
   font-size: 0;
@@ -281,6 +385,10 @@ button {
 button:hover {
   background-color: #82b1ff;
 }
+/*=============================================
+=              Component styles               =
+=============================================*/
+/*----------  Action image styles  ----------*/
 .action-image {
   position: relative;
   height: 200px;
@@ -315,126 +423,86 @@ button:hover {
 @media (hover: none) {
   .actionImage > span {
     visibility: visible;
-    bottom: 0px;
+    bottom: 0;
     width: 100%;
     height: 25%;
     margin: 0;
     border-radius: 0;
   }
 }
-a.button,
-a:visited.button {
-  display: inline-block;
-  background-color: #0d47a1;
-  text-align: center;
+/*----------  Action image styles  ----------*/
+.object-card,
+.object-card:hover,
+.object-card:visited {
+  border: 2px solid #0d47a1;
+  overflow: hidden;
   border-radius: 16px;
-  width: 128px;
-  height: 32px;
-  line-height: 32px;
-  margin: 8px;
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
+  max-width: 400px;
+  font-size: 0;
+  margin: 16px;
+  height: 200px;
+  color: black;
 }
-a.button:hover {
-  color: #82b1ff;
-}
-a.button.facebook,
-a.button.facebook:visited {
-  background-color: #4267b2;
-}
-a.button.twitter,
-a.button.twitter:visited {
-  background-color: #1da1f2;
-}
-a.button.youtube,
-a.button.youtube:visited {
-  background-color: #ff0000;
-}
-a.button.facebook:hover,
-a.button.twitter:hover,
-a.button.youtube:hover {
-  color: rgba(255, 255, 255, 0.75);
-}
-ul {
+.object-card .image,
+.object-card .description {
+  max-width: 50%;
+  height: 100%;
   display: inline-block;
-  text-align: left;
+  vertical-align: middle;
 }
-ul.check {
-  list-style-image: url('../img/check-icon.svg');
+.object-card .image {
+  display: inline-flex;
+  justify-content: center;
+  overflow: hidden;
 }
-ul.fat-check {
-  list-style-image: url('../img/check-fat-icon.svg');
-  font-size: 1.1em;
+.image img {
+  height: 100%;
 }
-ul.fat-check li {
-  margin-bottom: 0.4em;
-  padding-left: 8px;
+.object-card .description {
+  font-size: initial;
+  box-sizing: border-box;
+  padding: 10px;
 }
-ul.no-decoration {
-  list-style: none;
-  padding-left: 0;
+.object-card .description h3 {
+  margin: 8px 0;
 }
-.contact-main {
+.object-card .description .ul {
+  height: 140px;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+}
+.description ul.check,
+.description ul.fat-check {
+  padding-left: 30px;
+}
+/*------------  Search bar styles -----------*/
+.search-bar {
+  margin: 48px auto;
+  max-width: 840px;
+}
+@media screen and (max-width: 903px) {
+  .search-bar {
+    max-width: 404px;
+    margin: 16px auto;
+  }
+}
+.search-bar form {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  text-align: left;
-  margin: 50px;
-}
-.contact-main img {
-  position: left;
-  height: 180px;
-  width: 180px;
-  margin: 16px, 16px;
+  padding: 4px 16px;
+  background-color: #f2f2f2;
   border: 2px solid #0d47a1;
   border-radius: 16px;
-  overflow: hidden;
-  margin: 50px;
 }
-.contact-main .contact-intro {
-  align-items: center;
-  margin: 50px;
+.search-bar span,
+.search-bar button {
+  margin: 4px;
 }
-.contact-main .contact-intro .contact-intro-header {
-  font-size: 32px;
-  color: #0d47a1;
-  margin-top: 0px;
-}
-.contact-main .contact-intro .contact-intro-text {
-  width: 350px;
-}
-.contact-main .contact-intro button {
-  margin-top: 10px;
-}
-#dropdown-links {
-  position: absolute;
-  top: 64px;
-  width: 100%;
-  border-bottom: 1px solid #0d47a1;
-  background-color: #82b1ff;
-  z-index: 10;
-}
-#dropdown-links a {
-  display: block;
-  text-align: center;
-  width: 100%;
-  height: 0px;
-  line-height: 48px;
-  text-decoration: none;
-  font-size: 18px;
-  overflow: hidden;
-  color: #0d47a1;
-  font-family: 'Sanchez';
-  transition: height 0.25s;
-  border-bottom: 0px solid #0d47a1;
-}
-#dropdown-links.active > a {
-  height: 48px;
-}
-#dropdown-links.active > a:not(:last-child) {
-  border-bottom: 1px solid #0d47a1;
-}
+/*=============================================
+=               Section styles                =
+=============================================*/
 section {
   text-align: center;
   padding: 16px 16px 48px;
@@ -457,112 +525,38 @@ section:not(:last-of-type) {
 .row {
   text-align: left;
 }
-a.row {
-  cursor: pointer;
-}
-.split-text-section {
+/*--------------  Aside Section -------------*/
+.aside-section {
   padding: 48px 16px;
 }
-.split-text-section > .row {
-  overflow: hidden;
-}
-.split-text-section > .row div.image-wrapper {
-  float: left;
-  width: 50%;
-}
-@media screen and (max-width: 599px) {
-  .split-text-section > .row div.image-wrapper {
-    display: none;
-  }
-}
-.split-text-section > .row div.image-wrapper .actionImage {
+.aside-section .row {
+  display: flex;
+  max-width: 1024px;
   margin-left: auto;
-  margin-right: 92px;
+  margin-right: auto;
+  flex-wrap: wrap;
 }
-@media screen and (min-width: 600px) {
-  .split-text-section > .row .description {
-    float: right;
-    width: 50%;
-  }
+.aside-section aside {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
 }
-.split-text-section > .row .description h2 {
-  margin-bottom: 0;
+.aside-section article {
+  flex: 2 1 auto;
+  margin: 0 16px;
 }
 @media screen and (max-width: 599px) {
-  .split-text-section > .row .description h2 {
+  .aside-section aside,
+  .aside-section article {
+    width: 100%;
+  }
+  .aside-section article {
     text-align: center;
   }
 }
-.object-card,
-.object-card:hover,
-.object-card:visited {
-  border: 2px solid #0d47a1;
-  overflow: hidden;
-  border-radius: 16px;
-  max-width: 400px;
-  font-size: 0;
-  margin: 16px;
-  height: 200px;
-  color: black;
-}
-.object-card .image,
-.object-card:hover .image,
-.object-card:visited .image,
-.object-card .description,
-.object-card:hover .description,
-.object-card:visited .description {
-  max-width: 50%;
-  height: 100%;
-  display: inline-block;
-  vertical-align: middle;
-}
-.object-card .image,
-.object-card:hover .image,
-.object-card:visited .image {
-  display: inline-flex;
-  justify-content: center;
-  overflow: hidden;
-}
-.object-card .image img,
-.object-card:hover .image img,
-.object-card:visited .image img {
-  height: 100%;
-}
-.object-card .description,
-.object-card:hover .description,
-.object-card:visited .description {
-  font-size: initial;
-  box-sizing: border-box;
-  padding: 10px;
-}
-.object-card .description h3,
-.object-card:hover .description h3,
-.object-card:visited .description h3,
-.object-card .description ul,
-.object-card:hover .description ul,
-.object-card:visited .description ul {
-  margin: 8px 0;
-}
-.object-card .description ul,
-.object-card:hover .description ul,
-.object-card:visited .description ul {
-  height: 140px;
-  overflow: hidden;
-  display: block;
-}
-.object-card .description ul.check,
-.object-card:hover .description ul.check,
-.object-card:visited .description ul.check,
-.object-card .description ul.fat-check,
-.object-card:hover .description ul.fat-check,
-.object-card:visited .description ul.fat-check {
-  padding-left: 30px;
-}
-.object-card .description ul,
-.object-card:hover .description ul,
-.object-card:visited .description ul {
-  margin: 0;
-}
+/*=============================================
+=             Location page styles            =
+=============================================*/
 .item-detail-wrapper {
   display: flex;
   border: 2px solid #0d47a1;
@@ -655,28 +649,40 @@ a.row {
   margin-left: 50%;
   left: -75px;
 }
-#search-bar {
-  margin: 48px auto;
-  max-width: 840px;
-}
-@media screen and (max-width: 903px) {
-  #search-bar {
-    max-width: 404px;
-    margin: 16px auto;
-  }
-}
-#search-bar > form {
+/*=============================================
+=               Contact style                 =
+=============================================*/
+.contact-main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 4px 16px;
-  background-color: #f2f2f2;
+  text-align: left;
+  margin: 50px;
+}
+.contact-main img {
+  position: left;
+  height: 180px;
+  width: 180px;
+  margin: 16px, 16px;
   border: 2px solid #0d47a1;
   border-radius: 16px;
+  overflow: hidden;
+  margin: 50px;
 }
-#search-bar span,
-#search-bar button {
-  margin: 4px;
+.contact-main .contact-intro {
+  align-items: center;
+  margin: 50px;
+}
+.contact-main .contact-intro .contact-intro-header {
+  font-size: 32px;
+  color: #0d47a1;
+  margin-top: 0;
+}
+.contact-main .contact-intro .contact-intro-text {
+  width: 350px;
+}
+.contact-main .contact-intro button {
+  margin-top: 10px;
 }
 textarea {
   height: 64px;
