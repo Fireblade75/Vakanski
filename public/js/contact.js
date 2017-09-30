@@ -9,7 +9,7 @@ _.onReady(function () {
             _('.contact-intro-text').append(input);
 
             _('#contact-button').html('Verstuur');
-            _('contact-intro-header').html('Wat wilt u vragen?');
+            _('#contact-intro-header').html('Wat wilt u vragen?');
         } else {
 
             _('.contact-intro').removeChild('last');
