@@ -1,24 +1,21 @@
 _.onReady(function () {
     var active = false;
     _('#contact-button').onClick(function () {
-        
+
         if (!active) {
             active = true;
             _('.contact-intro-text').clear();
             const input = _.create('textarea', { id: 'input-contact' });
             _('.contact-intro-text').append(input);
 
-            var button = document.getElementById('contact-button');
-            button.innerHTML = 'Verstuur';
-
-            document.getElementById('contact-intro-header').innerHTML = 'Wat wilt u vragen?';
+            _('#contact-button').html('Verstuur');
+            _('contact-intro-header').html('Wat wilt u vragen?');
         } else {
-            
-            
-            document.getElementById('contact-intro-header').innerHTML = 'Helemaal klaar';
 
-            document.getElementById('contact-intro-text').innerHTML = 'Bedankt voor uw vraag, we nemen zo snel mogelijk contact met u op.'
-
+            _('.contact-intro').removeChild('last');
+            _('#contact-intro-text').removeChild('last');
+            _('#contact-intro-header').html('Helemaal klaar');
+            _('#contact-intro-text').html('Bedankt voor uw contactverzoek. We nemen zo spoedig mogelijk contact met u op.');
         }
 
     });

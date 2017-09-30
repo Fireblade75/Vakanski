@@ -657,7 +657,9 @@ section:not(:last-of-type) {
   flex-wrap: wrap;
   justify-content: center;
   text-align: left;
-  margin: 50px;
+  padding: 6.25%;
+  min-width: 250px;
+  min-height: 500px;
 }
 .contact-main img {
   position: left;
@@ -669,9 +671,14 @@ section:not(:last-of-type) {
   overflow: hidden;
   margin: 50px;
 }
+@media screen and (max-width: 900px) {
+  .contact-main img {
+    display: none;
+  }
+}
 .contact-main .contact-intro {
   align-items: center;
-  margin: 50px;
+  margin: 6.25%;
 }
 .contact-main .contact-intro .contact-intro-header {
   font-size: 32px;
@@ -679,7 +686,7 @@ section:not(:last-of-type) {
   margin-top: 0;
 }
 .contact-main .contact-intro .contact-intro-text {
-  width: 350px;
+  width: 100%;
 }
 .contact-main .contact-intro button {
   margin-top: 10px;
