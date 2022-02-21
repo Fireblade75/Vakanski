@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * This class is used to manipulate on or more DOM elements.
+ * This class is used to manipulate one or more DOM elements.
  */
 class SaxElement {
     /**
